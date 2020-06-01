@@ -1,0 +1,5 @@
+include ':network-builder'
+include ':network-builder'
+include ':network-provider'
+include ':app'
+rootProject.name = "Sweat"
