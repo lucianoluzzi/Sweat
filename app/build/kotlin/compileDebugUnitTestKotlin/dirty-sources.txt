@@ -1,1 +1,0 @@
-/Users/lucianoluzzi/Documents/dev/Sweat/app/src/test/java/com/lucianoluzzi/sweat/ExampleUnitTest.kt
