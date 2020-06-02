@@ -1,4 +1,4 @@
-package com.lucianoluzzi.networkprovider
+package com.lucianoluzzi.networkbuilder
 
 import retrofit2.Retrofit
 
