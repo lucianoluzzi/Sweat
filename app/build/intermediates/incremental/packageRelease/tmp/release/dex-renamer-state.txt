@@ -1,0 +1,4 @@
+#Tue Jun 02 11:40:27 CEST 2020
+base.0=/Users/lucianoluzzi/Documents/dev/Sweat/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

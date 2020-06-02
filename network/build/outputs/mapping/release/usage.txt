@@ -1,0 +1,7 @@
+com.lucianoluzzi.networkbuilder.NetworkBuilder$Companion
+com.lucianoluzzi.networkbuilder.APIProvider
+com.lucianoluzzi.networkbuilder.di.NetworkBuilderModule
+com.lucianoluzzi.networkbuilder.NetworkBuilder
+com.lucianoluzzi.network_builder.BuildConfig
+com.lucianoluzzi.networkbuilder.di.NetworkBuilderModule$module$1$1
+com.lucianoluzzi.networkbuilder.di.NetworkBuilderModule$module$1

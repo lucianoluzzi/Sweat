@@ -1,0 +1,1 @@
+/Users/lucianoluzzi/Documents/dev/Sweat/buildSrc/build/classes/kotlin/main/Dependencies$Versions.class:/Users/lucianoluzzi/Documents/dev/Sweat/buildSrc/build/classes/kotlin/main/Dependencies.class

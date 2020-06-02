@@ -1,0 +1,35 @@
+
+Y
+)app/src/main/res/layout/activity_main.xml,7/6/76b07e40f24cce093536731477540f12e7da3cb6
+h
+8app/src/main/java/com/lucianoluzzi/sweat/MainActivity.kt,2/d/2d1765917820f866c70615111f2a807a8f6c787b
+\
+,network-builder/src/main/AndroidManifest.xml,2/1/211d7b7394dd67ca26824160a57b889b8b713c3b
+l
+<app/src/main/java/com/lucianoluzzi/sweat/SweatApplication.kt,6/0/60d3f1f216898e7f9b611a36f8d84efc0cdb5e86
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+ˆ
+Xnetwork-builder/src/main/java/com/lucianoluzzi/networkbuilder/di/NetworkBuilderModule.kt,2/7/2731d2383e42a57e8b88abf4baa24c7772cf5ce1
+C
+dependencies.gradle,9/2/9282de42fdd92f96bfdaa8eed76823d133cf1624
+I
+buildSrc/build.gradle.kts,d/9/d90b697280fada81e52ec92d24725920f1cb087b
+<
+build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
+V
+&buildSrc/src/main/java/Dependencies.kt,e/8/e814710098f674890a8b6d2265ec0d2432e04a92
+
+Onetwork-builder/src/main/java/com/lucianoluzzi/networkbuilder/NetworkBuilder.kt,9/0/903a498de51e0e146c4de2d380f3b05fd1343e96
+ƒ
+Snetwork-builder/src/test/java/com/lucianoluzzi/networkbuilder/NetworkBuilderTest.kt,b/c/bcaed2f810d4b9099fc8a6981241ee4c06955898
+?
+settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
+|
+Lnetwork-builder/src/main/java/com/lucianoluzzi/networkbuilder/APIProvider.kt,5/2/52a40880df44fd90b5c671af3411f7d91faeedc8
+€
+Pnetwork-builder/src/test/java/com/lucianoluzzi/networkbuilder/APIProviderTest.kt,f/4/f41bcd283d778da97c0ef558f7dedf1ab08215ff
+D
+app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
+P
+ network-builder/build.gradle.kts,4/9/49efbd620d15bcea091c66e90530465bc4168e55

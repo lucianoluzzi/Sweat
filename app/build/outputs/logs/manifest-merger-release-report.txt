@@ -1,0 +1,180 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:2:1-22:12
+MERGED from [:network-builder] /Users/lucianoluzzi/Documents/dev/Sweat/network-builder/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-12:12
+MERGED from [androidx.core:core-ktx:1.3.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/023f302cd6478b9fc0e6c70402684152/jetified-core-ktx-1.3.0/AndroidManifest.xml:2:1-9:12
+MERGED from [org.koin:koin-android-viewmodel:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/870f5f0ba2e3b585821cecaf26496d38/jetified-koin-android-viewmodel-2.1.5/AndroidManifest.xml:2:1-9:12
+MERGED from [org.koin:koin-android-scope:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/82752b63606309f251c12fb94e8525e1/jetified-koin-android-scope-2.1.5/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/ce708c00b69df794d893127120e39f4d/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/bb2300ce0f2c2d19494d7273b7ae2ddd/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
+MERGED from [org.koin:koin-android:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/f102428dc61150a1644bb625710e2688/jetified-koin-android-2.1.5/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/72565504a40968357c841327254401d7/lifecycle-extensions-2.0.0/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/ec093a259d031d4b24405e2d34875271/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/543c93da285d5b20ac0ef1a5f4789535/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/6dfe9db340d8abced7148071b200f747/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/8e98015c20c193eec037b945c4610970/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/d631b36b5be74832ebcb6131e731304e/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/7322174bee45c5e884603c92ef4fb284/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/cf9b7b5b45d2d83c955f7b8f869a89e1/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/69210b1b5e722f5567d0d72f49f9b13a/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/def9b1a77235a94c868ab703a222213f/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.3.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/185c37b55fc6853865cc427055dc362f/core-1.3.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/cd3a1ccadde7665e39de75f2a06d95a7/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/d65420b4a68bd54de080950d6b8bf87a/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/f9c05ab1460d27ae94bd876a90e68ab8/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/1b1ca2c8517933656a97f84bc8a7a152/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/890a1cf3fe72dc9ca1eccb8107cbc7f9/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/edecb2f5a899a0d28eac9133d46aaa66/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/b0a1dfec27fff5278d4f60d3d9638f30/jetified-lifecycle-service-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/c506a0de40046abf3bb1bb634f5921ba/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/989946a3b19d5853c99a176d5f4eacd3/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/0f0fd3643cf0ed2f800579607c6b74a8/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/35343282f72e0552ad0fb4e089af8a78/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:2:1-22:12
+	package
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:3:5-37
+		INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:2:1-22:12
+		INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:2:1-22:12
+		INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:5:5-20:19
+MERGED from [org.koin:koin-android-viewmodel:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/870f5f0ba2e3b585821cecaf26496d38/jetified-koin-android-viewmodel-2.1.5/AndroidManifest.xml:7:5-20
+MERGED from [org.koin:koin-android-viewmodel:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/870f5f0ba2e3b585821cecaf26496d38/jetified-koin-android-viewmodel-2.1.5/AndroidManifest.xml:7:5-20
+MERGED from [org.koin:koin-android-scope:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/82752b63606309f251c12fb94e8525e1/jetified-koin-android-scope-2.1.5/AndroidManifest.xml:7:5-20
+MERGED from [org.koin:koin-android-scope:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/82752b63606309f251c12fb94e8525e1/jetified-koin-android-scope-2.1.5/AndroidManifest.xml:7:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/bb2300ce0f2c2d19494d7273b7ae2ddd/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/bb2300ce0f2c2d19494d7273b7ae2ddd/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/72565504a40968357c841327254401d7/lifecycle-extensions-2.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/72565504a40968357c841327254401d7/lifecycle-extensions-2.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.core:core:1.3.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/185c37b55fc6853865cc427055dc362f/core-1.3.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/185c37b55fc6853865cc427055dc362f/core-1.3.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/d65420b4a68bd54de080950d6b8bf87a/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/d65420b4a68bd54de080950d6b8bf87a/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/edecb2f5a899a0d28eac9133d46aaa66/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:22:5-28:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/edecb2f5a899a0d28eac9133d46aaa66/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:22:5-28:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/185c37b55fc6853865cc427055dc362f/core-1.3.0/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:12:9-40
+	android:name
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:11:9-41
+activity#com.lucianoluzzi.sweat.MainActivity
+ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:13:9-19:20
+	android:name
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:13:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:14:13-18:29
+action#android.intent.action.MAIN
+ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:17:17-77
+	android:name
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml:17:27-74
+uses-sdk
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+MERGED from [:network-builder] /Users/lucianoluzzi/Documents/dev/Sweat/network-builder/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:network-builder] /Users/lucianoluzzi/Documents/dev/Sweat/network-builder/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.core:core-ktx:1.3.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/023f302cd6478b9fc0e6c70402684152/jetified-core-ktx-1.3.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.3.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/023f302cd6478b9fc0e6c70402684152/jetified-core-ktx-1.3.0/AndroidManifest.xml:5:5-7:41
+MERGED from [org.koin:koin-android-viewmodel:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/870f5f0ba2e3b585821cecaf26496d38/jetified-koin-android-viewmodel-2.1.5/AndroidManifest.xml:5:5-44
+MERGED from [org.koin:koin-android-viewmodel:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/870f5f0ba2e3b585821cecaf26496d38/jetified-koin-android-viewmodel-2.1.5/AndroidManifest.xml:5:5-44
+MERGED from [org.koin:koin-android-scope:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/82752b63606309f251c12fb94e8525e1/jetified-koin-android-scope-2.1.5/AndroidManifest.xml:5:5-44
+MERGED from [org.koin:koin-android-scope:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/82752b63606309f251c12fb94e8525e1/jetified-koin-android-scope-2.1.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/ce708c00b69df794d893127120e39f4d/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/ce708c00b69df794d893127120e39f4d/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/bb2300ce0f2c2d19494d7273b7ae2ddd/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/bb2300ce0f2c2d19494d7273b7ae2ddd/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [org.koin:koin-android:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/f102428dc61150a1644bb625710e2688/jetified-koin-android-2.1.5/AndroidManifest.xml:5:5-44
+MERGED from [org.koin:koin-android:2.1.5] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/f102428dc61150a1644bb625710e2688/jetified-koin-android-2.1.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/72565504a40968357c841327254401d7/lifecycle-extensions-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/72565504a40968357c841327254401d7/lifecycle-extensions-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/ec093a259d031d4b24405e2d34875271/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/ec093a259d031d4b24405e2d34875271/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/543c93da285d5b20ac0ef1a5f4789535/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/543c93da285d5b20ac0ef1a5f4789535/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/6dfe9db340d8abced7148071b200f747/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/6dfe9db340d8abced7148071b200f747/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/8e98015c20c193eec037b945c4610970/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/8e98015c20c193eec037b945c4610970/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/d631b36b5be74832ebcb6131e731304e/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/d631b36b5be74832ebcb6131e731304e/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/7322174bee45c5e884603c92ef4fb284/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/7322174bee45c5e884603c92ef4fb284/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/cf9b7b5b45d2d83c955f7b8f869a89e1/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/cf9b7b5b45d2d83c955f7b8f869a89e1/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/69210b1b5e722f5567d0d72f49f9b13a/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/69210b1b5e722f5567d0d72f49f9b13a/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/def9b1a77235a94c868ab703a222213f/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/def9b1a77235a94c868ab703a222213f/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.3.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/185c37b55fc6853865cc427055dc362f/core-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/185c37b55fc6853865cc427055dc362f/core-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/cd3a1ccadde7665e39de75f2a06d95a7/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/cd3a1ccadde7665e39de75f2a06d95a7/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/d65420b4a68bd54de080950d6b8bf87a/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/d65420b4a68bd54de080950d6b8bf87a/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/f9c05ab1460d27ae94bd876a90e68ab8/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/f9c05ab1460d27ae94bd876a90e68ab8/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/1b1ca2c8517933656a97f84bc8a7a152/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/1b1ca2c8517933656a97f84bc8a7a152/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/890a1cf3fe72dc9ca1eccb8107cbc7f9/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/890a1cf3fe72dc9ca1eccb8107cbc7f9/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/edecb2f5a899a0d28eac9133d46aaa66/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/edecb2f5a899a0d28eac9133d46aaa66/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/b0a1dfec27fff5278d4f60d3d9638f30/jetified-lifecycle-service-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/b0a1dfec27fff5278d4f60d3d9638f30/jetified-lifecycle-service-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/c506a0de40046abf3bb1bb634f5921ba/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/c506a0de40046abf3bb1bb634f5921ba/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/989946a3b19d5853c99a176d5f4eacd3/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/989946a3b19d5853c99a176d5f4eacd3/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/0f0fd3643cf0ed2f800579607c6b74a8/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/0f0fd3643cf0ed2f800579607c6b74a8/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/35343282f72e0552ad0fb4e089af8a78/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/35343282f72e0552ad0fb4e089af8a78/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+		ADDED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/lucianoluzzi/Documents/dev/Sweat/app/src/main/AndroidManifest.xml
+provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/edecb2f5a899a0d28eac9133d46aaa66/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+	android:authorities
+		ADDED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/edecb2f5a899a0d28eac9133d46aaa66/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+	android:multiprocess
+		ADDED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/edecb2f5a899a0d28eac9133d46aaa66/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+	android:exported
+		ADDED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/edecb2f5a899a0d28eac9133d46aaa66/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/lucianoluzzi/.gradle/caches/transforms-2/files-2.1/edecb2f5a899a0d28eac9133d46aaa66/jetified-lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
