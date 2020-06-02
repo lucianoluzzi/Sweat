@@ -36,6 +36,8 @@ dependencies {
     testImplementation(Dependencies.junit)
     testRuntimeOnly(Dependencies.junitRuntime)
     testImplementation(Dependencies.truth)
+    testImplementation(Dependencies.mockitoKotlin)
+    testImplementation(Dependencies.mockito)
     androidTestImplementation(Dependencies.androidXJunit)
 
     // NETWORK
