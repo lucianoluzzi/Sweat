@@ -1,6 +1,7 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
     id("kotlin-android-extensions")
 }
 
@@ -9,21 +10,17 @@ android {
         dataBinding = true
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
     compileSdkVersion(29)
     buildToolsVersion("29.0.3")
 
     defaultConfig {
-        applicationId = "com.lucianoluzzi.sweat"
-        minSdkVersion(23)
+        minSdkVersion(21)
         targetSdkVersion(29)
         versionCode = 1
         versionName = "1.0"
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -35,26 +32,26 @@ android {
 }
 
 dependencies {
-    implementation(project(":network"))
-    implementation(project(":login"))
-    implementation(project(":design"))
-
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(project(":design"))
+    implementation(project(":network"))
+
     implementation(Dependencies.kotlin)
+
+    implementation(Dependencies.koin)
+    implementation(Dependencies.koinViewModel)
 
     implementation(Dependencies.androidKtxCore)
     implementation(Dependencies.androidAppCompat)
+    implementation(Dependencies.material)
+    implementation(Dependencies.androidXFragment)
     implementation(Dependencies.constraintLayout)
+
+    implementation(Dependencies.retrofit)
+
+    implementation(Dependencies.facebookLogin)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.androidXJunit)
-
     androidTestImplementation(Dependencies.espressoCore)
-
-    implementation(Dependencies.koin)
-    implementation(Dependencies.koinAndroidScope)
-    implementation(Dependencies.koinViewModel)
-
-    testImplementation(Dependencies.mockito)
-    testImplementation(Dependencies.mockitoKotlin)
 }
