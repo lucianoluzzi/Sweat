@@ -1,4 +1,4 @@
-package com.lucianoluzzi.login.repository.network
+package com.lucianoluzzi.login.repository.network.service
 
 import com.lucianoluzzi.login.repository.network.request.LoginRequest
 import com.lucianoluzzi.login.repository.network.response.LoginResponse

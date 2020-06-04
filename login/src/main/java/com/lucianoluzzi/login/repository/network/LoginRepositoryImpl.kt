@@ -2,6 +2,8 @@ package com.lucianoluzzi.login.repository.network
 
 import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.repository.network.request.LoginRequest
+import com.lucianoluzzi.login.repository.network.response.LoginResponse
+import com.lucianoluzzi.login.repository.network.service.LoginService
 import com.lucianoluzzi.networkbuilder.APIProvider
 
 class LoginRepositoryImpl(private val apiProvider: APIProvider) :
@@ -9,7 +11,7 @@ class LoginRepositoryImpl(private val apiProvider: APIProvider) :
 
     override suspend fun doLogin(loginRequest: LoginRequest): LoginResponseState {
         val service = apiProvider.createService(LoginService::class.java)
-        val loginResponse = service.doLogin(loginRequest)
-        return LoginResponseState.Success(loginResponse)
+        //val loginResponse = service.doLogin(loginRequest) -- TODO: integrate with backend
+        return LoginResponseState.Success(LoginResponse)
     }
 }
