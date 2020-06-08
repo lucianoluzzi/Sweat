@@ -3,7 +3,7 @@ package com.lucianoluzzi.login.domain.usecases
 import com.facebook.AccessToken
 import com.lucianoluzzi.login.domain.entities.Profile
 import com.lucianoluzzi.login.repository.network.FacebookRepository
-import kotlinx.coroutines.Dispatchers
+import com.lucianoluzzi.tests.DispatcherRegistry
 import kotlinx.coroutines.withContext
 
 class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) :
@@ -12,7 +12,7 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
     override suspend fun getProfile(
         facebookProfile: com.facebook.Profile,
         accessToken: AccessToken
-    ): Profile = withContext(Dispatchers.IO) {
+    ): Profile = withContext(DispatcherRegistry.IO) {
         val email = facebookRepository.getEmail(accessToken)
 
         return@withContext Profile(
@@ -20,15 +20,7 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
             name = facebookProfile.firstName,
             middleName = facebookProfile.middleName,
             lastName = facebookProfile.lastName,
-            profilePicture = facebookProfile.getProfilePictureUri(200, 200)
+            imageUrl = facebookProfile.getProfilePictureUri(200, 200).toString()
         )
-    }
-
-    private companion object {
-        const val EMAIL_JSON_KEY = "email"
-        const val FIRST_NAME = "first_name"
-        const val MIDDLE_NAME = "middle_name"
-        const val LAST_NAME = "last_name"
-        const val PROFILE_PICTURE = "profile_pic"
     }
 }

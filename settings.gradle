@@ -1,3 +1,4 @@
+include ':tests'
 include ':design'
 include ':login'
 include ':network'

@@ -9,6 +9,7 @@ import com.facebook.Profile
 import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.domain.usecases.GetProfileUseCase
 import com.lucianoluzzi.login.domain.usecases.DoLoginUseCase
+import com.lucianoluzzi.login.repository.network.response.LoginResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -28,7 +29,14 @@ class LoginViewModel(
                 accessToken = accessToken,
                 facebookProfile = facebookProfile
             )
-            _loginState.value = doLoginUseCase.doLogin(convertedProfile)
+            val loginResponse = doLoginUseCase.doLogin(convertedProfile)
+            _loginState.value = getLoginResponseState(loginResponse)
         }
     }
+
+    private fun getLoginResponseState(loginResponse: LoginResponse) =
+        when (loginResponse) {
+            is LoginResponse.Error<*> -> LoginResponseState.Error(loginResponse.error)
+            is LoginResponse.Success<*> -> LoginResponseState.Success(loginResponse.responseData)
+        }
 }

@@ -1,3 +1,6 @@
 package com.lucianoluzzi.login.repository.network.response
 
-object LoginResponse
+sealed class LoginResponse {
+    data class Success<T>(val responseData: T): LoginResponse()
+    data class Error<T>(val error: T): LoginResponse()
+}

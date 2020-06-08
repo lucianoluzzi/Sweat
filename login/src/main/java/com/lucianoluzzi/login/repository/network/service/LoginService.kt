@@ -1,12 +1,13 @@
 package com.lucianoluzzi.login.repository.network.service
 
-import com.lucianoluzzi.login.repository.network.request.LoginRequest
-import com.lucianoluzzi.login.repository.network.response.LoginResponse
+import com.lucianoluzzi.login.domain.entities.Profile
 import retrofit2.http.Body
+import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface LoginService {
 
-    @POST("login")
-    suspend fun doLogin(@Body loginRequest: LoginRequest): LoginResponse
+    @Headers("Accept: application/json")
+    @POST("persons")
+    suspend fun doLogin(@Body profile: Profile): Profile
 }

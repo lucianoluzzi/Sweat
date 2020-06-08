@@ -1,15 +1,10 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-kapt")
     id("kotlin-android-extensions")
 }
 
 android {
-    buildFeatures {
-        dataBinding = true
-    }
-
     compileSdkVersion(29)
     buildToolsVersion("29.0.3")
 
@@ -33,32 +28,12 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(project(":design"))
-    implementation(project(":network"))
-    testImplementation(project(":tests"))
-    implementation(project(":tests"))
-
     implementation(Dependencies.kotlin)
-
-    implementation(Dependencies.koin)
-    implementation(Dependencies.koinViewModel)
-
     implementation(Dependencies.androidKtxCore)
     implementation(Dependencies.androidAppCompat)
-    implementation(Dependencies.material)
+    implementation(Dependencies.androidXAnnotation)
     implementation(Dependencies.androidXFragment)
-    implementation(Dependencies.constraintLayout)
 
-    implementation(Dependencies.retrofit)
-    implementation(Dependencies.moshi)
-
-    implementation(Dependencies.facebookLogin)
-
-    testImplementation(Dependencies.junit)
-    testImplementation(Dependencies.truth)
-    testImplementation(Dependencies.mockitoKotlin)
-    testImplementation(Dependencies.mockito)
-    testImplementation(Dependencies.coroutinesTest)
-    androidTestImplementation(Dependencies.androidXJunit)
-    androidTestImplementation(Dependencies.espressoCore)
+    implementation(Dependencies.coroutinesTest)
+    implementation(Dependencies.junit)
 }

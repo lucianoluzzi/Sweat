@@ -1,11 +1,16 @@
 package com.lucianoluzzi.login.domain.entities
 
-import android.net.Uri
+import com.squareup.moshi.JsonClass
 
-data class Profile (
-    private val email: String?,
-    private val name: String,
-    private val middleName: String?,
-    private val lastName: String,
-    private val profilePicture: Uri?
+@JsonClass(generateAdapter = true)
+data class Profile(
+    val email: String? = null,
+    val name: String,
+    val middleName: String? = null,
+    val lastName: String,
+    val imageUrl: String? = null,
+    val birthDate: String? = null,
+    val height: Int? = null,
+    val weight: Int? = null,
+    val age: Int? = null
 )

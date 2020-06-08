@@ -7,6 +7,7 @@ import com.lucianoluzzi.login.repository.network.LoginRepositoryImpl
 import com.lucianoluzzi.login.ui.LoginFragmentFactory
 import com.lucianoluzzi.login.ui.viewmodel.LoginViewModel
 import com.lucianoluzzi.networkbuilder.APIProvider
+import com.lucianoluzzi.networkbuilder.NetworkExecutor
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -16,7 +17,9 @@ object LoginModule {
         viewModel {
             val convertFacebookProfileUseCase =
                 GetProfileUseCaseImpl(FacebookRepositoryImpl())
-            val doLoginUseCase = DoLoginUseCaseImpl(LoginRepositoryImpl(get() as APIProvider))
+            val doLoginUseCase = DoLoginUseCaseImpl(
+                LoginRepositoryImpl(get() as APIProvider, get() as NetworkExecutor)
+            )
 
             LoginViewModel(
                 convertFacebookProfileUseCase = convertFacebookProfileUseCase,

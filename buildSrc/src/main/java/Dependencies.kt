@@ -20,11 +20,15 @@ object Dependencies {
     const val androidXJunit = "androidx.test.ext:junit:${Versions.androidXJUnit}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCoreVersion}"
     const val truth = "com.google.truth:truth:${Versions.googleTruth}"
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTestVersion}"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
     const val converterMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.converterMoshiVersion}"
     const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttpVersion}"
     const val moshi = "com.squareup.moshi:moshi:${Versions.moshiVersion}"
+    const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshiVersion}"
+    const val moshiAdapters = "com.squareup.moshi:moshi-adapters:${Versions.moshiVersion}"
+    const val moshiCodeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshiVersion}"
 
     const val facebookLogin = "com.facebook.android:facebook-login:${Versions.facebookLoginVersion}"
 
@@ -43,6 +47,7 @@ object Dependencies {
         const val mockitoKotlinVersion = "2.2.0"
         const val mockitoCoreVersion = "3.3.3"
 
+        const val coroutinesTestVersion = "1.3.7"
         const val retrofitVersion = "2.9.0"
         const val converterMoshiVersion = "2.9.0"
         const val okhttpVersion = "4.7.2"

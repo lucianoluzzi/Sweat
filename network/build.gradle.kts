@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
     id("kotlin-android-extensions")
 }
 
@@ -40,11 +41,16 @@ dependencies {
     testImplementation(Dependencies.mockito)
     androidTestImplementation(Dependencies.androidXJunit)
 
+    implementation(Dependencies.androidXFragment)
+
     // NETWORK
     implementation(Dependencies.retrofit)
     implementation(Dependencies.converterMoshi)
     implementation(Dependencies.okhttp)
     implementation(Dependencies.moshi)
+    implementation(Dependencies.moshiKotlin)
+    implementation(Dependencies.moshiAdapters)
+    kapt(Dependencies.moshiCodeGen)
 
     // DI
     implementation(Dependencies.koin)
