@@ -16,6 +16,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 @ExperimentalCoroutinesApi
 @ExtendWith(CoroutineScopeExtension::class)
 class GetProfileUseCaseImplTest {
+
     private val accessToken = mock<AccessToken>()
     private val facebookProfile = mock<Profile> {
         on { firstName } doReturn "Luciano"

@@ -20,7 +20,7 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
             name = facebookProfile.firstName,
             middleName = facebookProfile.middleName,
             lastName = facebookProfile.lastName,
-            imageUrl = facebookProfile.getProfilePictureUri(200, 200).toString()
+            imageUrl = facebookProfile.getProfilePictureUri(200, 200)?.toString()
         )
     }
 }
