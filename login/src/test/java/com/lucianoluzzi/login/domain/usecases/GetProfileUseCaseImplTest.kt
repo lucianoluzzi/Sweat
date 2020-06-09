@@ -1,5 +1,6 @@
 package com.lucianoluzzi.login.domain.usecases
 
+import android.net.Uri
 import com.facebook.AccessToken
 import com.facebook.Profile
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -61,19 +62,63 @@ class GetProfileUseCaseImplTest {
 
     @Test
     fun `assert Profile when doLogin with google account`() = runBlockingTest {
+        val mockedUri = mock<Uri> {
+            on { toString() } doReturn "www.google.com"
+        }
         val googleAccount = mock<GoogleSignInAccount> {
             on { email } doReturn "lucianoluzzi@hotmail.com"
             on { givenName } doReturn "Luciano"
             on { familyName } doReturn "Luzzi"
+            on { photoUrl } doReturn mockedUri
         }
         val expectedProfile = com.lucianoluzzi.login.domain.entities.Profile (
             email = "lucianoluzzi@hotmail.com",
             name = "Luciano",
-            lastName = "Luzzi"
+            lastName = "Luzzi",
+            imageUrl = "www.google.com"
         )
 
         val returnedProfile = useCase.getProfile(googleAccount)
 
         assertThat(expectedProfile).isEqualTo(returnedProfile)
+    }
+
+    @Test
+    fun `assert throws exception when doLogin with google account without email`() = runBlockingTest {
+        val googleAccount = mock<GoogleSignInAccount> {
+            on { email } doReturn null
+            on { givenName } doReturn "Luciano"
+            on { familyName } doReturn "Luzzi"
+        }
+
+        assertThrows<Exception> {
+            useCase.getProfile(googleAccount)
+        }
+    }
+
+    @Test
+    fun `assert throws exception when doLogin with google account without name`() = runBlockingTest {
+        val googleAccount = mock<GoogleSignInAccount> {
+            on { email } doReturn "lucianoluzzi@hotmail.com"
+            on { givenName } doReturn null
+            on { familyName } doReturn "Luzzi"
+        }
+
+        assertThrows<Exception> {
+            useCase.getProfile(googleAccount)
+        }
+    }
+
+    @Test
+    fun `assert throws exception when doLogin with google account without last name`() = runBlockingTest {
+        val googleAccount = mock<GoogleSignInAccount> {
+            on { email } doReturn "lucianoluzzi@hotmail.com"
+            on { givenName } doReturn "Luciano"
+            on { familyName } doReturn null
+        }
+
+        assertThrows<Exception> {
+            useCase.getProfile(googleAccount)
+        }
     }
 }

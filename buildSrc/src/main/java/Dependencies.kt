@@ -54,7 +54,7 @@ object Dependencies {
         const val okhttpVersion = "4.7.2"
         const val moshiVersion = "1.9.2"
 
-        const val junitVersion = "5.3.1"
+        const val junitVersion = "5.7.0-M1"
         const val androidXJUnit = "1.1.1"
         const val espressoCoreVersion = "3.2.0"
         const val googleTruth = "1.0.1"
