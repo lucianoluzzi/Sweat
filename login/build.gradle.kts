@@ -10,6 +10,15 @@ android {
         dataBinding = true
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     compileSdkVersion(29)
     buildToolsVersion("29.0.3")
 
@@ -53,6 +62,7 @@ dependencies {
     implementation(Dependencies.moshi)
 
     implementation(Dependencies.facebookLogin)
+    implementation(Dependencies.googleLogin)
 
     testImplementation(Dependencies.junit)
     testImplementation(Dependencies.truth)

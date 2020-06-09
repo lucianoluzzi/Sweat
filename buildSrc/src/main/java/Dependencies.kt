@@ -31,6 +31,7 @@ object Dependencies {
     const val moshiCodeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshiVersion}"
 
     const val facebookLogin = "com.facebook.android:facebook-login:${Versions.facebookLoginVersion}"
+    const val googleLogin = "com.google.android.gms:play-services-auth:${Versions.googleLoginVersion}"
 
     private object Versions {
         const val androidCoreKtxVersion = "1.3.0"
@@ -59,6 +60,7 @@ object Dependencies {
         const val googleTruth = "1.0.1"
 
         const val facebookLoginVersion = "[5,6)"
+        const val googleLoginVersion = "18.0.0"
     }
 }
 

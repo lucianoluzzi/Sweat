@@ -2,6 +2,7 @@ package com.lucianoluzzi.login.ui.viewmodel
 
 import com.facebook.AccessToken
 import com.facebook.Profile
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.common.truth.Truth.assertThat
 import com.lucianoluzzi.login.CoroutineScopeExtension
 import com.lucianoluzzi.login.InstantExecutorExtension
@@ -25,12 +26,12 @@ class LoginViewModelTest {
     private val doLoginUseCase = mock<DoLoginUseCase>()
 
     private val viewModel = LoginViewModel(
-        convertFacebookProfileUseCase = convertFacebookProfileUseCase,
+        getProfileUseCase = convertFacebookProfileUseCase,
         doLoginUseCase = doLoginUseCase
     )
 
     @Test
-    fun `assert convert profile use case called with mock`() = runBlockingTest {
+    fun `assert doLoginWithFacebookProfile returns LoginResponse Success`() = runBlockingTest {
         val accessToken = mock<AccessToken>()
         val facebookProfile = mock<Profile>()
         val convertedProfile = getConvertedProfile()
@@ -41,10 +42,68 @@ class LoginViewModelTest {
         ).doReturn(convertedProfile)
         whenever(doLoginUseCase.doLogin(convertedProfile)).doReturn(expectedLoginResult)
 
-        viewModel.doLogin(facebookProfile, accessToken)
+        viewModel.doLoginWithFacebookProfile(facebookProfile, accessToken)
         assertThat(viewModel.loginResponseState.value).isEqualTo(
             LoginResponseState.Success(
                 expectedLoginResult.responseData
+            )
+        )
+    }
+
+    @Test
+    fun `assert doLoginWithFacebookProfile returns LoginResponse Error`() = runBlockingTest {
+        val accessToken = mock<AccessToken>()
+        val facebookProfile = mock<Profile>()
+        val convertedProfile = getConvertedProfile()
+        val expectedLoginResult = LoginResponse.Error("erro")
+
+        whenever(
+            convertFacebookProfileUseCase.getProfile(facebookProfile, accessToken)
+        ).doReturn(convertedProfile)
+        whenever(doLoginUseCase.doLogin(convertedProfile)).doReturn(expectedLoginResult)
+
+        viewModel.doLoginWithFacebookProfile(facebookProfile, accessToken)
+        assertThat(viewModel.loginResponseState.value).isEqualTo(
+            LoginResponseState.Error(
+                expectedLoginResult.error
+            )
+        )
+    }
+
+    @Test
+    fun `assert doLoginWithGoogle returns LoginResponse Success`() = runBlockingTest {
+        val googleAccount = mock<GoogleSignInAccount>()
+        val convertedProfile = getConvertedProfile()
+        val expectedLoginResult = LoginResponse.Success(Any())
+
+        whenever(
+            convertFacebookProfileUseCase.getProfile(googleAccount)
+        ).doReturn(convertedProfile)
+        whenever(doLoginUseCase.doLogin(convertedProfile)).doReturn(expectedLoginResult)
+
+        viewModel.doLoginWithGoogle(googleAccount)
+        assertThat(viewModel.loginResponseState.value).isEqualTo(
+            LoginResponseState.Success(
+                expectedLoginResult.responseData
+            )
+        )
+    }
+
+    @Test
+    fun `assert doLoginWithGoogle returns LoginResponse Error`() = runBlockingTest {
+        val googleAccount = mock<GoogleSignInAccount>()
+        val convertedProfile = getConvertedProfile()
+        val expectedLoginResult = LoginResponse.Error("erro")
+
+        whenever(
+            convertFacebookProfileUseCase.getProfile(googleAccount)
+        ).doReturn(convertedProfile)
+        whenever(doLoginUseCase.doLogin(convertedProfile)).doReturn(expectedLoginResult)
+
+        viewModel.doLoginWithGoogle(googleAccount)
+        assertThat(viewModel.loginResponseState.value).isEqualTo(
+            LoginResponseState.Error(
+                expectedLoginResult.error
             )
         )
     }

@@ -15,14 +15,14 @@ object LoginModule {
     val module = module {
 
         viewModel {
-            val convertFacebookProfileUseCase =
+            val getProfileUseCase =
                 GetProfileUseCaseImpl(FacebookRepositoryImpl())
             val doLoginUseCase = DoLoginUseCaseImpl(
                 LoginRepositoryImpl(get() as APIProvider, get() as NetworkExecutor)
             )
 
             LoginViewModel(
-                convertFacebookProfileUseCase = convertFacebookProfileUseCase,
+                getProfileUseCase = getProfileUseCase,
                 doLoginUseCase = doLoginUseCase
             )
         }

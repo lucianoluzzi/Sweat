@@ -44,7 +44,8 @@ class DoLoginUseCaseImplTest {
 
     private fun getMockProfile(): Profile = Profile(
         name = "luciano",
-        lastName = "luzzi"
+        lastName = "luzzi",
+        email = "lucianoluzzi@hotmail.com"
     )
 
     private fun getMockLoginRequest(profile: Profile): LoginRequest = LoginRequest(profile)
