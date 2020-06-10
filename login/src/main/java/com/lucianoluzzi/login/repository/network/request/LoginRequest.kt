@@ -1,5 +1,5 @@
 package com.lucianoluzzi.login.repository.network.request
 
-import com.lucianoluzzi.login.domain.entities.Profile
+import com.lucianoluzzi.domain.Profile
 
-data class LoginRequest(val profile: Profile)
+data class LoginRequest(val profile: com.lucianoluzzi.domain.Profile)

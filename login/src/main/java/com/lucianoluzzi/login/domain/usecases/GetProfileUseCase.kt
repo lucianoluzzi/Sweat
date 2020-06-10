@@ -2,9 +2,9 @@ package com.lucianoluzzi.login.domain.usecases
 
 import com.facebook.AccessToken
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.lucianoluzzi.login.domain.entities.Profile
+import com.lucianoluzzi.domain.Profile
 
 interface GetProfileUseCase {
-    suspend fun getProfile(facebookProfile: com.facebook.Profile, accessToken: AccessToken): Profile
-    suspend fun getProfile(googleSignInAccount: GoogleSignInAccount): Profile
+    suspend fun getProfile(facebookProfile: com.facebook.Profile, accessToken: AccessToken): com.lucianoluzzi.domain.Profile
+    suspend fun getProfile(googleSignInAccount: GoogleSignInAccount): com.lucianoluzzi.domain.Profile
 }

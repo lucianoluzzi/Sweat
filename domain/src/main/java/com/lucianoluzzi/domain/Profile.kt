@@ -1,4 +1,4 @@
-package com.lucianoluzzi.login.domain.entities
+package com.lucianoluzzi.domain
 
 import com.squareup.moshi.JsonClass
 

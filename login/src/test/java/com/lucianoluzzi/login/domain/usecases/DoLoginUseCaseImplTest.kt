@@ -2,7 +2,7 @@ package com.lucianoluzzi.login.domain.usecases
 
 import com.google.common.truth.Truth.assertThat
 import com.lucianoluzzi.login.CoroutineScopeExtension
-import com.lucianoluzzi.login.domain.entities.Profile
+import com.lucianoluzzi.domain.Profile
 import com.lucianoluzzi.login.repository.network.LoginRepository
 import com.lucianoluzzi.login.repository.network.request.LoginRequest
 import com.lucianoluzzi.login.repository.network.response.LoginResponse
@@ -42,11 +42,12 @@ class DoLoginUseCaseImplTest {
         assertThat(loginResult).isEqualTo(expectedReturn)
     }
 
-    private fun getMockProfile(): Profile = Profile(
-        name = "luciano",
-        lastName = "luzzi",
-        email = "lucianoluzzi@hotmail.com"
-    )
+    private fun getMockProfile(): com.lucianoluzzi.domain.Profile =
+        com.lucianoluzzi.domain.Profile(
+            name = "luciano",
+            lastName = "luzzi",
+            email = "lucianoluzzi@hotmail.com"
+        )
 
-    private fun getMockLoginRequest(profile: Profile): LoginRequest = LoginRequest(profile)
+    private fun getMockLoginRequest(profile: com.lucianoluzzi.domain.Profile): LoginRequest = LoginRequest(profile)
 }

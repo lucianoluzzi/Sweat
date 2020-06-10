@@ -2,7 +2,7 @@ package com.lucianoluzzi.login.domain.usecases
 
 import com.facebook.AccessToken
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.lucianoluzzi.login.domain.entities.Profile
+import com.lucianoluzzi.domain.Profile
 import com.lucianoluzzi.login.repository.network.FacebookRepository
 import com.lucianoluzzi.tests.DispatcherRegistry
 import kotlinx.coroutines.withContext
@@ -13,11 +13,11 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
     override suspend fun getProfile(
         facebookProfile: com.facebook.Profile,
         accessToken: AccessToken
-    ): Profile = withContext(DispatcherRegistry.IO) {
+    ): com.lucianoluzzi.domain.Profile = withContext(DispatcherRegistry.IO) {
         val email = facebookRepository.getEmail(accessToken)
 
         return@withContext email?.let {
-            Profile(
+            com.lucianoluzzi.domain.Profile(
                 email = it,
                 name = facebookProfile.firstName,
                 middleName = facebookProfile.middleName,
@@ -29,12 +29,12 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
         }
     }
 
-    override suspend fun getProfile(googleSignInAccount: GoogleSignInAccount): Profile {
+    override suspend fun getProfile(googleSignInAccount: GoogleSignInAccount): com.lucianoluzzi.domain.Profile {
         if (googleSignInAccount.email != null &&
             googleSignInAccount.givenName != null &&
             googleSignInAccount.familyName != null
         ) {
-            return Profile(
+            return com.lucianoluzzi.domain.Profile(
                 email = googleSignInAccount.email!!,
                 name = googleSignInAccount.givenName!!,
                 lastName = googleSignInAccount.familyName!!,

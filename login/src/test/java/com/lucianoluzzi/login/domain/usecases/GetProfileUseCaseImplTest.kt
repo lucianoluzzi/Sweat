@@ -34,7 +34,7 @@ class GetProfileUseCaseImplTest {
         }
         whenever(repository.getEmail(accessToken)).doReturn("lucianoluzzi@hotmail.com")
 
-        val expectedProfile = com.lucianoluzzi.login.domain.entities.Profile (
+        val expectedProfile = com.lucianoluzzi.domain.Profile(
             email = "lucianoluzzi@hotmail.com",
             name = "Luciano",
             lastName = "Luzzi"
@@ -71,7 +71,7 @@ class GetProfileUseCaseImplTest {
             on { familyName } doReturn "Luzzi"
             on { photoUrl } doReturn mockedUri
         }
-        val expectedProfile = com.lucianoluzzi.login.domain.entities.Profile (
+        val expectedProfile = com.lucianoluzzi.domain.Profile(
             email = "lucianoluzzi@hotmail.com",
             name = "Luciano",
             lastName = "Luzzi",

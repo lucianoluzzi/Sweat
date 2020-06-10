@@ -44,8 +44,9 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":design"))
     implementation(project(":network"))
-    testImplementation(project(":tests"))
+    implementation(project(":domain"))
     implementation(project(":tests"))
+    testImplementation(project(":tests"))
 
     implementation(Dependencies.kotlin)
 

@@ -88,7 +88,7 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
         facebookCallbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode === GOOGLE_SIGNIN_REQUEST_CODE) {
+        if (requestCode == GOOGLE_SIGNIN_REQUEST_CODE) {
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             handleGoogleSignInResult(task)
         }

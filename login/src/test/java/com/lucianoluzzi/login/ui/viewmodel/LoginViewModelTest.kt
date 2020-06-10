@@ -108,8 +108,8 @@ class LoginViewModelTest {
         )
     }
 
-    private fun getConvertedProfile(): com.lucianoluzzi.login.domain.entities.Profile {
-        return com.lucianoluzzi.login.domain.entities.Profile(
+    private fun getConvertedProfile(): com.lucianoluzzi.domain.Profile {
+        return com.lucianoluzzi.domain.Profile(
             email = "lucianoluzzi@hotmail.com",
             name = "Luciano",
             lastName = "Luzzi"
