@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
@@ -19,6 +20,7 @@ import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.lucianoluzzi.login.databinding.FragmentLoginBinding
+import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.domain.entities.facebook.Permissions
 import com.lucianoluzzi.login.ui.extensions.onLogin
 import com.lucianoluzzi.login.ui.viewmodel.LoginViewModel
@@ -48,11 +50,13 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding.signInButton.setSize(SignInButton.SIZE_STANDARD)
         setFacebookProfileTracker()
         setFacebookLoginButton()
         setGoogleLoginButton()
 
+        viewModel.loginResponseState.observe(viewLifecycleOwner, Observer {
+            handleLoginResponse(it)
+        })
         return binding.root
     }
 
@@ -78,10 +82,31 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
     }
 
     private fun setGoogleLoginButton() {
+        binding.signInButton.setSize(SignInButton.SIZE_STANDARD)
         binding.signInButton.setOnClickListener {
             val signInIntent: Intent = googleSignInClient.signInIntent
             startActivityForResult(signInIntent, GOOGLE_SIGNIN_REQUEST_CODE)
         }
+    }
+
+    private fun handleLoginResponse(loginResponseState: LoginResponseState) {
+        when(loginResponseState) {
+            is LoginResponseState.Loading -> { handleLoading() }
+            is LoginResponseState.Success<*> -> { navigateToUserFeed(loginResponseState.response as Profile) }
+            is LoginResponseState.Error<*> -> { displayErrorMessage() }
+        }
+    }
+
+    private fun handleLoading() {
+        // TODO: handle loading
+    }
+
+    private fun navigateToUserFeed(profile: Profile) {
+        // TODO: implement navigation to user feed
+    }
+
+    private fun displayErrorMessage() {
+        // TODO: display error message
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
