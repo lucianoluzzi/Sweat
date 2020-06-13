@@ -1,6 +1,7 @@
 package com.lucianoluzzi.domain
 
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 data class Profile(
@@ -13,4 +14,4 @@ data class Profile(
     val height: Int? = null,
     val weight: Int? = null,
     val age: Int? = null
-)
+) : Serializable

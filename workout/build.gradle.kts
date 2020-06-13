@@ -1,22 +1,12 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-kapt")
     id("kotlin-android-extensions")
 }
 
 android {
     buildFeatures {
         dataBinding = true
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
     compileSdkVersion(29)
@@ -41,36 +31,24 @@ android {
 }
 
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(project(":design"))
-    implementation(project(":network"))
     implementation(project(":domain"))
-    implementation(project(":tests"))
-    implementation(project(":utils"))
-    testImplementation(project(":tests"))
+
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(Dependencies.kotlin)
-
-    implementation(Dependencies.koin)
-    implementation(Dependencies.koinViewModel)
 
     implementation(Dependencies.androidKtxCore)
     implementation(Dependencies.androidAppCompat)
     implementation(Dependencies.material)
     implementation(Dependencies.androidXFragment)
     implementation(Dependencies.constraintLayout)
+    implementation(Dependencies.liveData)
 
-    implementation(Dependencies.retrofit)
-    implementation(Dependencies.moshi)
+    implementation(Dependencies.koin)
+    implementation(Dependencies.koinViewModel)
 
-    implementation(Dependencies.facebookLogin)
-    implementation(Dependencies.googleLogin)
+    implementation(Dependencies.junit)
 
-    testImplementation(Dependencies.junit)
-    testImplementation(Dependencies.truth)
-    testImplementation(Dependencies.mockitoKotlin)
-    testImplementation(Dependencies.mockito)
-    testImplementation(Dependencies.coroutinesTest)
     androidTestImplementation(Dependencies.androidXJunit)
     androidTestImplementation(Dependencies.espressoCore)
 }

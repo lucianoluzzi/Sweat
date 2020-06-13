@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -24,6 +25,10 @@ import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.domain.entities.facebook.Permissions
 import com.lucianoluzzi.login.ui.extensions.onLogin
 import com.lucianoluzzi.login.ui.viewmodel.LoginViewModel
+import com.lucianoluzzi.networkbuilder.domain.entities.ErrorResponse
+import com.lucianoluzzi.utils.doNothing
+import com.lucianoluzzi.utils.hide
+import com.lucianoluzzi.utils.show
 import kotlinx.coroutines.launch
 
 
@@ -77,6 +82,9 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
         binding.facebookLogin.setPermissions(Permissions().listOfPermissions())
         binding.facebookLogin.fragment = this
         lifecycleScope.launch {
+            binding.facebookLogin.setOnClickListener {
+                viewModel.loginClicked()
+            }
             binding.facebookLogin.onLogin(facebookCallbackManager)
         }
     }
@@ -84,6 +92,7 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
     private fun setGoogleLoginButton() {
         binding.signInButton.setSize(SignInButton.SIZE_STANDARD)
         binding.signInButton.setOnClickListener {
+            viewModel.loginClicked()
             val signInIntent: Intent = googleSignInClient.signInIntent
             startActivityForResult(signInIntent, GOOGLE_SIGNIN_REQUEST_CODE)
         }
@@ -91,22 +100,36 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
 
     private fun handleLoginResponse(loginResponseState: LoginResponseState) {
         when(loginResponseState) {
-            is LoginResponseState.Loading -> { handleLoading() }
-            is LoginResponseState.Success<*> -> { navigateToUserFeed(loginResponseState.response as Profile) }
-            is LoginResponseState.Error<*> -> { displayErrorMessage() }
+            is LoginResponseState.Loading -> doNothing
+            is LoginResponseState.Success -> { navigateToUserFeed(loginResponseState.response) }
+            is LoginResponseState.Error -> displayErrorMessage(loginResponseState.error)
+            is LoginResponseState.Cancel -> binding.progress.hide()
         }
     }
 
     private fun handleLoading() {
-        // TODO: handle loading
+        with(binding) {
+            progress.show()
+            contentContainer.hide()
+        }
     }
 
-    private fun navigateToUserFeed(profile: Profile) {
-        // TODO: implement navigation to user feed
+    private fun navigateToUserFeed(profile: com.lucianoluzzi.domain.Profile) {
+        binding.progress.hide()
+
+        val intent = Intent().apply {
+            arguments = Bundle().apply {
+                putExtra("PROFILE", profile)
+            }
+        }
+        intent.setClassName(requireContext(), "com.lucianoluzzi.workout.feed.ui.FeedActivity")
+        startActivity(intent)
     }
 
-    private fun displayErrorMessage() {
-        // TODO: display error message
+    private fun displayErrorMessage(errorResponse: ErrorResponse?) {
+        binding.progress.hide()
+        val errorMessage = errorResponse?.message ?: "An error has occured."
+        Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

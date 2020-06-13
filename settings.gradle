@@ -1,3 +1,5 @@
+include ':workout'
+include ':utils'
 include ':domain'
 include ':tests'
 include ':design'

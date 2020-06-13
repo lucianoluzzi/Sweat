@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 
 class DoLoginUseCaseImpl(private val loginRepository: LoginRepository): DoLoginUseCase {
 
-    override suspend fun doLogin(profile: com.lucianoluzzi.domain.Profile): LoginResponse =
+    override suspend fun doLogin(profile: Profile): LoginResponse =
         withContext(DispatcherRegistry.IO) {
             loginRepository.doLogin(
                 LoginRequest(

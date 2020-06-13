@@ -4,5 +4,5 @@ import com.lucianoluzzi.domain.Profile
 import com.lucianoluzzi.login.repository.network.response.LoginResponse
 
 interface DoLoginUseCase {
-    suspend fun doLogin(profile: com.lucianoluzzi.domain.Profile): LoginResponse
+    suspend fun doLogin(profile: Profile): LoginResponse
 }
