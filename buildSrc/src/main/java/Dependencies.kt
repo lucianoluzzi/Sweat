@@ -1,5 +1,7 @@
 object Dependencies {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlinVersion}"
+    const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}"
+    const val buildGradle = "com.android.tools.build:gradle:${Versions.buildGradle}"
 
     const val androidKtxCore = "androidx.core:core-ktx:${Versions.androidCoreKtx}"
     const val androidAppCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
@@ -8,6 +10,10 @@ object Dependencies {
     const val androidXAnnotation = "androidx.annotation:annotation:${Versions.androidXAnnotation}"
     const val androidXFragment = "androidx.fragment:fragment-ktx:${Versions.androidXFragment}"
     const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveData}"
+    const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+    const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
 
     const val koin = "org.koin:koin-android:${Versions.koinVersion}"
     const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koinVersion}"
@@ -34,6 +40,9 @@ object Dependencies {
     const val googleLogin = "com.google.android.gms:play-services-auth:${Versions.googleLogin}"
 
     private object Versions {
+        const val kotlinVersion = "1.3.72"
+        const val buildGradle = "4.0.0"
+
         const val androidCoreKtx = "1.3.0"
         const val appCompat = "1.1.0"
         const val constraintLayout = "1.1.3"
@@ -41,8 +50,8 @@ object Dependencies {
         const val androidXAnnotation = "1.1.0"
         const val androidXFragment = "1.2.4"
         const val liveData = "2.2.0"
-
-        const val kotlinVersion = "1.3.72"
+        const val navigation = "2.3.0-rc01"
+        const val fragment = "1.2.0"
 
         const val koinVersion = "2.1.5"
         const val mockitoKotlin = "2.2.0"
