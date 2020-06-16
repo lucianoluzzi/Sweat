@@ -32,20 +32,17 @@ class LoginViewModel(
                 accessToken = accessToken,
                 facebookProfile = facebookProfile
             )
-            _loginState.value = LoginResponseState.Success(convertedProfile)
 
-//            val loginResponse = doLoginUseCase.doLogin(convertedProfile)
-//            _loginState.value = getLoginResponseState(loginResponse)
+            val loginResponse = doLoginUseCase.doLogin(convertedProfile)
+            _loginState.value = getLoginResponseState(loginResponse)
         }
     }
 
     fun doLoginWithGoogle(googleSignInAccount: GoogleSignInAccount) {
         viewModelScope.launch {
             val convertedProfile = getProfileUseCase.getProfile(googleSignInAccount)
-            _loginState.value = LoginResponseState.Success(convertedProfile)
-
-//            val loginResponse = doLoginUseCase.doLogin(convertedProfile)
-//            _loginState.value = getLoginResponseState(loginResponse)
+            val loginResponse = doLoginUseCase.doLogin(convertedProfile)
+            _loginState.value = getLoginResponseState(loginResponse)
         }
     }
 

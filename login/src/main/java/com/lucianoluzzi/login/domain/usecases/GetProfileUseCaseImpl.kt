@@ -13,7 +13,7 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
     override suspend fun getProfile(
         facebookProfile: com.facebook.Profile,
         accessToken: AccessToken
-    ): com.lucianoluzzi.domain.Profile = withContext(DispatcherRegistry.IO) {
+    ): Profile = withContext(DispatcherRegistry.IO) {
         val email = facebookRepository.getEmail(accessToken)
 
         return@withContext email?.let {
@@ -29,7 +29,7 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
         }
     }
 
-    override suspend fun getProfile(googleSignInAccount: GoogleSignInAccount): com.lucianoluzzi.domain.Profile {
+    override suspend fun getProfile(googleSignInAccount: GoogleSignInAccount): Profile {
         if (googleSignInAccount.email != null &&
             googleSignInAccount.givenName != null &&
             googleSignInAccount.familyName != null
