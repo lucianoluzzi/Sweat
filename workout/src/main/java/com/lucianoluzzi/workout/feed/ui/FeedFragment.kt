@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.lucianoluzzi.workout.databinding.FragmentFeedBinding
 import com.lucianoluzzi.workout.feed.ui.viewModel.FeedViewModel
 
@@ -30,6 +31,9 @@ class FeedFragment(private val viewModel: FeedViewModel) : Fragment() {
     }
 
     private fun setFab() {
-
+        binding.addWorkoutButton.setOnClickListener {
+            val action = FeedFragmentDirections.actionFeedFragmentToPostFragment()
+            findNavController().navigate(action)
+        }
     }
 }
