@@ -21,6 +21,7 @@ import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.lucianoluzzi.login.databinding.FragmentLoginBinding
+import com.lucianoluzzi.login.domain.entities.GoogleSessionManager
 import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.domain.entities.facebook.Permissions
 import com.lucianoluzzi.login.ui.extensions.onLogin
@@ -47,6 +48,9 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
                 .build()
         GoogleSignIn.getClient(requireActivity(), googleSignInOptions)
     }
+    private val googleSessionManager by lazy {
+        GoogleSessionManager(requireContext())
+    }
 
     private lateinit var profileTracker: ProfileTracker
 
@@ -63,6 +67,14 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
             handleLoginResponse(it)
         })
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val signedInAccount = googleSessionManager.getSignedInAccount()
+        signedInAccount?.let {
+            viewModel.doLoginWithGoogle(it)
+        }
     }
 
     private fun setFacebookProfileTracker() {

@@ -1,6 +1,5 @@
 package com.lucianoluzzi.login.ui.viewmodel
 
-import android.accounts.Account
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,8 +8,8 @@ import com.facebook.AccessToken
 import com.facebook.Profile
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.lucianoluzzi.login.domain.entities.LoginResponseState
-import com.lucianoluzzi.login.domain.usecases.GetProfileUseCase
 import com.lucianoluzzi.login.domain.usecases.DoLoginUseCase
+import com.lucianoluzzi.login.domain.usecases.GetProfileUseCase
 import com.lucianoluzzi.login.repository.network.response.LoginResponse
 import com.lucianoluzzi.networkbuilder.domain.entities.ErrorResponse
 import com.lucianoluzzi.utils.doNothing
