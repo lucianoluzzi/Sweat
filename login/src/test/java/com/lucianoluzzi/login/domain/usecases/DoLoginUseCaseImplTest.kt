@@ -43,8 +43,7 @@ class DoLoginUseCaseImplTest {
 
     private fun getMockProfile(): com.lucianoluzzi.domain.Profile =
         com.lucianoluzzi.domain.Profile(
-            name = "luciano",
-            lastName = "luzzi",
+            name = "luciano luzzi",
             email = "lucianoluzzi@hotmail.com"
         )
 

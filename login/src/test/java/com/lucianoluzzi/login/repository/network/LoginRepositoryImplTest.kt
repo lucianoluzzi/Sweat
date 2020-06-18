@@ -41,10 +41,9 @@ class LoginRepositoryImplTest {
 
     private fun getLoginRequest(): LoginRequest {
         return LoginRequest(
-            com.lucianoluzzi.domain.Profile(
+            Profile(
                 email = "",
-                name = "",
-                lastName = ""
+                name = ""
             )
         )
     }

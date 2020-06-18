@@ -17,11 +17,13 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
         val email = facebookRepository.getEmail(accessToken)
 
         return@withContext email?.let {
+            val middleName = facebookProfile.middleName?.let {
+                " $it "
+            } ?: " "
+
             com.lucianoluzzi.domain.Profile(
                 email = it,
-                name = facebookProfile.firstName,
-                middleName = facebookProfile.middleName,
-                lastName = facebookProfile.lastName,
+                name = "${facebookProfile.firstName}$middleName${facebookProfile.lastName}",
                 imageUrl = facebookProfile.getProfilePictureUri(200, 200)?.toString()
             )
         } ?: run {
@@ -36,8 +38,7 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
         ) {
             return com.lucianoluzzi.domain.Profile(
                 email = googleSignInAccount.email!!,
-                name = googleSignInAccount.givenName!!,
-                lastName = googleSignInAccount.familyName!!,
+                name = "${googleSignInAccount.givenName!!} ${googleSignInAccount.familyName!!}",
                 imageUrl = googleSignInAccount.photoUrl?.toString()
             )
         } else

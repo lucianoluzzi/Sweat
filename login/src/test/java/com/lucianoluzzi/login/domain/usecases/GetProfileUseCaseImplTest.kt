@@ -36,8 +36,7 @@ class GetProfileUseCaseImplTest {
 
         val expectedProfile = com.lucianoluzzi.domain.Profile(
             email = "lucianoluzzi@hotmail.com",
-            name = "Luciano",
-            lastName = "Luzzi"
+            name = "Luciano Luzzi"
         )
         val returnedProfile = useCase.getProfile(facebookProfile, accessToken)
 
@@ -50,7 +49,7 @@ class GetProfileUseCaseImplTest {
         val facebookProfile = mock<Profile> {
             on { firstName } doReturn "Luciano"
             on { lastName } doReturn "Luzzi"
-            on { middleName } doReturn null
+            on { middleName } doReturn "P."
             on { getProfilePictureUri(200,200) } doReturn null
         }
         whenever(repository.getEmail(accessToken)).doReturn(null)
@@ -73,8 +72,7 @@ class GetProfileUseCaseImplTest {
         }
         val expectedProfile = com.lucianoluzzi.domain.Profile(
             email = "lucianoluzzi@hotmail.com",
-            name = "Luciano",
-            lastName = "Luzzi",
+            name = "Luciano Luzzi",
             imageUrl = "www.google.com"
         )
 
