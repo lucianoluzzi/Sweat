@@ -2,10 +2,9 @@ package com.lucianoluzzi.login.domain.usecases
 
 import com.google.common.truth.Truth.assertThat
 import com.lucianoluzzi.login.CoroutineScopeExtension
-import com.lucianoluzzi.domain.Profile
 import com.lucianoluzzi.login.repository.network.LoginRepository
 import com.lucianoluzzi.login.repository.network.request.LoginRequest
-import com.lucianoluzzi.login.repository.network.response.LoginResponse
+import com.lucianoluzzi.login.repository.network.response.LoginResponseWrapper
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
@@ -32,7 +31,7 @@ class DoLoginUseCaseImplTest {
 
     @Test
     fun `assert useCase return repository result`() = runBlockingTest {
-        val expectedReturn = LoginResponse.Success(Unit)
+        val expectedReturn = LoginResponseWrapper.Success(Unit)
         val mockProfile = getMockProfile()
         val mockLoginRequest = getMockLoginRequest(mockProfile)
 

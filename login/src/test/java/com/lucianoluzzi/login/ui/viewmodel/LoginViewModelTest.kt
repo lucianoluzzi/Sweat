@@ -9,7 +9,7 @@ import com.lucianoluzzi.login.InstantExecutorExtension
 import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.domain.usecases.DoLoginUseCase
 import com.lucianoluzzi.login.domain.usecases.GetProfileUseCase
-import com.lucianoluzzi.login.repository.network.response.LoginResponse
+import com.lucianoluzzi.login.repository.network.response.LoginResponseWrapper
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -35,7 +35,7 @@ class LoginViewModelTest {
         val accessToken = mock<AccessToken>()
         val facebookProfile = mock<Profile>()
         val convertedProfile = getConvertedProfile()
-        val expectedLoginResult = LoginResponse.Success(Any())
+        val expectedLoginResult = LoginResponseWrapper.Success(Any())
 
         whenever(
             convertFacebookProfileUseCase.getProfile(facebookProfile, accessToken)
@@ -55,7 +55,7 @@ class LoginViewModelTest {
         val accessToken = mock<AccessToken>()
         val facebookProfile = mock<Profile>()
         val convertedProfile = getConvertedProfile()
-        val expectedLoginResult = LoginResponse.Error("erro")
+        val expectedLoginResult = LoginResponseWrapper.Error("erro")
 
         whenever(
             convertFacebookProfileUseCase.getProfile(facebookProfile, accessToken)
@@ -74,7 +74,7 @@ class LoginViewModelTest {
     fun `assert doLoginWithGoogle returns LoginResponse Success`() = runBlockingTest {
         val googleAccount = mock<GoogleSignInAccount>()
         val convertedProfile = getConvertedProfile()
-        val expectedLoginResult = LoginResponse.Success(Any())
+        val expectedLoginResult = LoginResponseWrapper.Success(Any())
 
         whenever(
             convertFacebookProfileUseCase.getProfile(googleAccount)
@@ -93,7 +93,7 @@ class LoginViewModelTest {
     fun `assert doLoginWithGoogle returns LoginResponse Error`() = runBlockingTest {
         val googleAccount = mock<GoogleSignInAccount>()
         val convertedProfile = getConvertedProfile()
-        val expectedLoginResult = LoginResponse.Error("erro")
+        val expectedLoginResult = LoginResponseWrapper.Error("erro")
 
         whenever(
             convertFacebookProfileUseCase.getProfile(googleAccount)

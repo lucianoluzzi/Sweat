@@ -1,8 +1,8 @@
 package com.lucianoluzzi.login.repository.network
 
 import com.lucianoluzzi.login.repository.network.request.LoginRequest
-import com.lucianoluzzi.login.repository.network.response.LoginResponse
+import com.lucianoluzzi.login.repository.network.response.LoginResponseWrapper
 
 interface LoginRepository {
-    suspend fun doLogin(loginRequest: LoginRequest): LoginResponse
+    suspend fun doLogin(loginRequest: LoginRequest): LoginResponseWrapper
 }

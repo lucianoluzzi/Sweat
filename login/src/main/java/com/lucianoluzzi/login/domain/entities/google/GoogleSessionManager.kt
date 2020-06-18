@@ -1,4 +1,4 @@
-package com.lucianoluzzi.login.domain.entities
+package com.lucianoluzzi.login.domain.entities.google
 
 import android.content.Context
 import com.google.android.gms.auth.api.signin.GoogleSignIn

@@ -8,7 +8,7 @@ data class Profile(
     val email: String,
     val name: String,
     val middleName: String? = null,
-    val lastName: String,
+    val lastName: String?, // TODO: should not be nullable, making it so untill backend fixes
     val imageUrl: String? = null,
     val birthDate: String? = null,
     val height: Int? = null,

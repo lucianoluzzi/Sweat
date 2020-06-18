@@ -10,7 +10,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.domain.usecases.DoLoginUseCase
 import com.lucianoluzzi.login.domain.usecases.GetProfileUseCase
-import com.lucianoluzzi.login.repository.network.response.LoginResponse
+import com.lucianoluzzi.login.repository.network.response.LoginResponseWrapper
 import com.lucianoluzzi.networkbuilder.domain.entities.ErrorResponse
 import com.lucianoluzzi.utils.doNothing
 import kotlinx.coroutines.launch
@@ -45,20 +45,20 @@ class LoginViewModel(
         }
     }
 
-    private fun getLoginResponseState(loginResponse: LoginResponse) =
-        when (loginResponse) {
-            is LoginResponse.Error<*> -> {
-                LoginResponseState.Error(getErrorModel(loginResponse))
+    private fun getLoginResponseState(loginResponseWrapper: LoginResponseWrapper) =
+        when (loginResponseWrapper) {
+            is LoginResponseWrapper.Error<*> -> {
+                LoginResponseState.Error(getErrorModel(loginResponseWrapper))
             }
-            is LoginResponse.Success<*> -> LoginResponseState.Success(getProfile(loginResponse))
+            is LoginResponseWrapper.Success<*> -> LoginResponseState.Success(getProfile(loginResponseWrapper))
         }
 
-    private fun getProfile(loginResponse: LoginResponse.Success<*>): com.lucianoluzzi.domain.Profile {
-        return loginResponse.responseData as com.lucianoluzzi.domain.Profile
+    private fun getProfile(loginResponseWrapper: LoginResponseWrapper.Success<*>): com.lucianoluzzi.domain.Profile {
+        return loginResponseWrapper.responseData as com.lucianoluzzi.domain.Profile
     }
 
-    private fun getErrorModel(loginResponse: LoginResponse.Error<*>): ErrorResponse {
-        return loginResponse.error?.let {
+    private fun getErrorModel(loginResponseWrapper: LoginResponseWrapper.Error<*>): ErrorResponse {
+        return loginResponseWrapper.error?.let {
             return if (it is ErrorResponse)
                 it
             else
