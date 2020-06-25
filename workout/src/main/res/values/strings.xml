@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="insert_workout_label">What\'s your workout today?</string>
+    <string name="exercise_accessibility">Exercise</string>
+    <string name="weight_accessibility">Weight</string>
+    <string name="repetitions_accessibility">Repetitions</string>
+</resources>

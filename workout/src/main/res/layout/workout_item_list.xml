@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exercise_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/exercise_hint">
+
+        <AutoCompleteTextView
+            style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/exercise_accessibility"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:minWidth="90dp"
+            android:textSize="14sp"
+            tools:text="Exercise" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weight_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:hint="@string/weight_label">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/weight_accessibility"
+            android:minWidth="90dp"
+            android:textSize="14sp"
+            tools:text="Weight" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/reps_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:hint="@string/reps_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/repetitions_accessibility"
+            android:minWidth="90dp"
+            android:textSize="14sp"
+            tools:text="Reps" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/add_button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="@string/add_exercise_accessibility"
+        android:focusable="true"
+        android:src="@drawable/ic_plus_circle" />
+
+</LinearLayout>

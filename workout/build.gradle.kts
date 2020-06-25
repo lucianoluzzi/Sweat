@@ -33,6 +33,7 @@ android {
 
 dependencies {
     implementation(project(":domain"))
+    implementation(project(":design"))
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
