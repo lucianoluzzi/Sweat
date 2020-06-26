@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.transition.TransitionInflater
 import androidx.transition.TransitionManager
@@ -34,15 +35,35 @@ class PostWorkoutFragment : Fragment() {
     private fun addLine() {
         val inflater = LayoutInflater.from(requireContext())
         val child = inflater.inflate(R.layout.workout_item_list, binding.exercisesContainer, false)
-        val addButton = child.findViewById<ImageView>(R.id.add_button)
-        addButton.setOnClickListener {
-            val transition = TransitionInflater.from(requireContext())
-                .inflateTransition(android.R.transition.explode)
-            TransitionManager.beginDelayedTransition(binding.exercisesContainer, transition);
+        val actionButton = child.findViewById<ImageView>(R.id.action_button)
 
-            addLine()
+        actionButton.setOnClickListener {
+            actionButton.setImageDrawable(
+                resources.getDrawable(
+                    R.drawable.ic_delete_circle,
+                    requireContext().theme
+                )
+            )
+
+            val indexOfChild = binding.exercisesContainer.indexOfChild(child)
+            if (indexOfChild != binding.exercisesContainer.size - 1)
+                removeLine(child)
+            else
+                addLine()
         }
 
+        val transition = TransitionInflater.from(requireContext())
+            .inflateTransition(android.R.transition.explode)
+        TransitionManager.beginDelayedTransition(binding.exercisesContainer, transition)
+
         binding.exercisesContainer.addView(child)
+    }
+
+    private fun removeLine(child: View) {
+        val transition = TransitionInflater.from(requireContext())
+            .inflateTransition(android.R.transition.move)
+        TransitionManager.beginDelayedTransition(binding.exercisesContainer, transition)
+
+        binding.exercisesContainer.removeView(child)
     }
 }
