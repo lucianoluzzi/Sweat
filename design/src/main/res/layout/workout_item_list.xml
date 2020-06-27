@@ -25,6 +25,8 @@
             android:inputType="text"
             android:minWidth="90dp"
             android:textSize="14sp"
+            android:maxLength="240"
+            android:maxLines="1"
             tools:text="Exercise" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -45,6 +47,10 @@
             android:contentDescription="@string/weight_accessibility"
             android:minWidth="90dp"
             android:textSize="14sp"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="6"
+            android:maxLines="1"
             tools:text="Weight" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -65,6 +71,10 @@
             android:contentDescription="@string/repetitions_accessibility"
             android:minWidth="90dp"
             android:textSize="14sp"
+            android:inputType="number"
+            android:imeOptions="actionNext"
+            android:maxLength="3"
+            android:maxLines="1"
             tools:text="Reps" />
 
     </com.google.android.material.textfield.TextInputLayout>

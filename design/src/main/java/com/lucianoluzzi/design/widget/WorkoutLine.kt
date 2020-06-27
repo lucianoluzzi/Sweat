@@ -1,6 +1,7 @@
 package com.lucianoluzzi.design.widget
 
 import android.content.Context
+import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import androidx.appcompat.widget.LinearLayoutCompat
@@ -9,7 +10,9 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.lucianoluzzi.design.R
 import com.lucianoluzzi.utils.hide
+import com.lucianoluzzi.utils.isVisible
 import com.lucianoluzzi.utils.show
+
 
 class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
 
@@ -53,12 +56,16 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
 
     private fun setWeightTextChangedListener() {
         weight.doOnTextChanged { text, _, _, _ ->
-            if (text.isNullOrEmpty()) {
-                repetitionsInputLayout.hide(keepSize = true)
-                actionButton.hide(keepSize = true)
-            } else {
-                repetitionsInputLayout.show()
-            }
+            onWeightVisibilityOrTextChanged(weight.isVisible(), text.toString())
+        }
+    }
+
+    private fun onWeightVisibilityOrTextChanged(isVisible: Boolean, text: String) {
+        if (text.isEmpty() || !isVisible) {
+            repetitionsInputLayout.hide(keepSize = true)
+            actionButton.hide(keepSize = true)
+        } else {
+            repetitionsInputLayout.show()
         }
     }
 
@@ -72,11 +79,25 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
         }
     }
 
-    fun setAutoCompleteList(list: String) {
-
+    fun setAutoCompleteList(list: List<String>) {
+        val adapter = ArrayAdapter<String>(
+            context,
+            R.layout.autocomplete_list_item,
+            R.id.exercise,
+            list
+        )
+        workoutName.setAdapter(adapter)
     }
 
-    fun setActionClickListener(onClickListener: OnClickListener) {
-        actionButton.setOnClickListener(onClickListener)
+    fun setActionClickListener(onClickListener: () -> Unit) {
+        actionButton.setOnClickListener {
+            actionButton.setImageDrawable(
+                resources.getDrawable(
+                    R.drawable.ic_delete_circle,
+                    context.theme
+                )
+            )
+            onClickListener()
+        }
     }
 }

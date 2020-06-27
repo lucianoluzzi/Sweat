@@ -9,3 +9,7 @@ fun View.show() {
 fun View.hide(keepSize: Boolean = false) {
     visibility = if (keepSize) View.INVISIBLE else View.GONE
 }
+
+fun View.isVisible(): Boolean {
+    return visibility == View.VISIBLE
+}
