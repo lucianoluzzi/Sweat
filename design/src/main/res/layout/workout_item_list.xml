@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
     android:gravity="center"
     android:orientation="horizontal"
     android:padding="8dp">
@@ -14,6 +16,7 @@
         android:hint="@string/exercise_hint">
 
         <AutoCompleteTextView
+            android:id="@+id/exercise_name"
             style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,9 +34,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:hint="@string/weight_label">
+        android:hint="@string/weight_label"
+        android:visibility="invisible"
+        tools:visibility="visible">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/weight_accessibility"
@@ -48,9 +54,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:hint="@string/reps_hint">
+        android:hint="@string/reps_hint"
+        android:visibility="invisible"
+        tools:visibility="visible">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/repetitions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/repetitions_accessibility"
@@ -69,6 +78,8 @@
         android:clickable="true"
         android:contentDescription="@string/add_exercise_accessibility"
         android:focusable="true"
-        android:src="@drawable/ic_plus_circle" />
+        android:src="@drawable/ic_plus_circle"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 
 </LinearLayout>

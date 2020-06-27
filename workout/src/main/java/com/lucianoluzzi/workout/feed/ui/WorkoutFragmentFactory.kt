@@ -1,0 +1,20 @@
+package com.lucianoluzzi.workout.feed.ui
+
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
+import com.lucianoluzzi.workout.feed.ui.viewModel.FeedViewModel
+import com.lucianoluzzi.workout.post.ui.PostWorkoutFragment
+import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
+
+class WorkoutFragmentFactory(
+    private val feedViewModel: FeedViewModel,
+    private val postWorkoutViewModel: PostWorkoutViewModel
+) : FragmentFactory() {
+
+    override fun instantiate(classLoader: ClassLoader, className: String): Fragment =
+        when (className) {
+            FeedFragment::class.java.name -> FeedFragment(feedViewModel)
+            PostWorkoutFragment::class.java.name -> PostWorkoutFragment(postWorkoutViewModel)
+            else -> super.instantiate(classLoader, className)
+        }
+}

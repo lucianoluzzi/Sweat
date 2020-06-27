@@ -7,12 +7,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.view.size
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.transition.TransitionInflater
 import androidx.transition.TransitionManager
+import com.lucianoluzzi.design.widget.WorkoutLine
 import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.FragmentPostWorkoutBinding
+import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
 
-class PostWorkoutFragment : Fragment() {
+class PostWorkoutFragment(private val viewModel: PostWorkoutViewModel) : Fragment() {
 
     private val binding by lazy {
         val inflater = LayoutInflater.from(requireContext())
@@ -24,6 +27,9 @@ class PostWorkoutFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel.exercises.observe(viewLifecycleOwner, Observer {
+
+        })
         return binding.root
     }
 
@@ -33,8 +39,7 @@ class PostWorkoutFragment : Fragment() {
     }
 
     private fun addLine() {
-        val inflater = LayoutInflater.from(requireContext())
-        val child = inflater.inflate(R.layout.workout_item_list, binding.exercisesContainer, false)
+        val child = WorkoutLine(requireContext())
         val actionButton = child.findViewById<ImageView>(R.id.action_button)
 
         actionButton.setOnClickListener {

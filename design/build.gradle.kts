@@ -24,14 +24,27 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
+    implementation(project(":utils"))
+
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(Dependencies.kotlin)
     implementation(Dependencies.androidKtxCore)
     implementation(Dependencies.androidAppCompat)
+    implementation(Dependencies.material)
+
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.androidXJunit)
     androidTestImplementation(Dependencies.espressoCore)
