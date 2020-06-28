@@ -1,8 +1,8 @@
 package com.lucianoluzzi.workout.post.domain.usecase
 
-class GetExercisesUseCase {
+class GetExercisesUseCase() {
 
-    fun invoke(): List<String> {
+    suspend fun invoke(): List<String> {
         return listOf(
             "Rosca direta",
             "Triceps corda",

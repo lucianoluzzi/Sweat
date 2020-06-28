@@ -43,6 +43,7 @@ android {
 dependencies {
     implementation(project(":domain"))
     implementation(project(":design"))
+    implementation(project(":tests"))
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
@@ -61,7 +62,11 @@ dependencies {
     implementation(Dependencies.koin)
     implementation(Dependencies.koinViewModel)
 
-    implementation(Dependencies.junit)
+    testImplementation(Dependencies.junit)
+    testImplementation(Dependencies.truth)
+    testImplementation(Dependencies.mockitoKotlin)
+    testImplementation(Dependencies.mockito)
+    testImplementation(Dependencies.coroutinesTest)
 
     androidTestImplementation(Dependencies.androidXJunit)
     androidTestImplementation(Dependencies.espressoCore)
