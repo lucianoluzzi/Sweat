@@ -3,6 +3,7 @@ package com.lucianoluzzi.workout.feed.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.lucianoluzzi.workout.R
+import com.lucianoluzzi.workout.WorkoutFragmentFactory
 import org.koin.android.ext.android.get
 
 class FeedActivity : AppCompatActivity() {

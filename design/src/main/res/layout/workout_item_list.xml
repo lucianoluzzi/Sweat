@@ -1,95 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:animateLayoutChanges="true"
     android:gravity="center"
     android:orientation="horizontal"
     android:padding="8dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/exercise_input"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/exercise_hint">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <AutoCompleteTextView
-            android:id="@+id/exercise_name"
-            style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/exercise_input"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/exercise_accessibility"
-            android:imeOptions="actionNext"
-            android:inputType="text"
-            android:minWidth="90dp"
-            android:textSize="14sp"
-            android:maxLength="240"
-            android:maxLines="1"
-            tools:text="Exercise" />
+            android:hint="@string/exercise_hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/weight_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <AutoCompleteTextView
+                android:id="@+id/exercise_name"
+                style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/exercise_accessibility"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLength="240"
+                android:minWidth="90dp"
+                android:textSize="14sp"
+                tools:text="Exercise" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/weight_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:hint="@string/weight_label"
-        android:visibility="invisible"
-        tools:visibility="visible">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/weight"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/weight_input"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/weight_accessibility"
-            android:minWidth="90dp"
-            android:textSize="14sp"
-            android:imeOptions="actionNext"
-            android:inputType="number"
-            android:maxLength="6"
-            android:maxLines="1"
-            tools:text="Weight" />
+            android:layout_marginStart="16dp"
+            android:hint="@string/weight_label"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/exercise_input"
+            app:layout_constraintEnd_toStartOf="@id/reps_input"
+            app:layout_constraintStart_toEndOf="@id/exercise_input"
+            app:layout_constraintTop_toTopOf="@id/exercise_input"
+            tools:visibility="visible">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/weight_accessibility"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:minWidth="90dp"
+                android:textSize="14sp"
+                tools:text="Weight" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/reps_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:hint="@string/reps_hint"
-        android:visibility="invisible"
-        tools:visibility="visible">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/repetitions"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/reps_input"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/repetitions_accessibility"
-            android:minWidth="90dp"
-            android:textSize="14sp"
-            android:inputType="number"
-            android:imeOptions="actionNext"
-            android:maxLength="3"
-            android:maxLines="1"
-            tools:text="Reps" />
+            android:layout_marginStart="16dp"
+            android:hint="@string/reps_hint"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/exercise_input"
+            app:layout_constraintEnd_toStartOf="@id/action_button"
+            app:layout_constraintStart_toEndOf="@id/weight_input"
+            app:layout_constraintTop_toTopOf="@id/exercise_input"
+            tools:visibility="visible">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/repetitions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/repetitions_accessibility"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="3"
+                android:maxLines="1"
+                android:minWidth="90dp"
+                android:textSize="14sp"
+                tools:text="Reps" />
 
-    <ImageView
-        android:id="@+id/action_button"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:contentDescription="@string/add_exercise_accessibility"
-        android:focusable="true"
-        android:src="@drawable/ic_plus_circle"
-        android:visibility="invisible"
-        tools:visibility="visible" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/action_button"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/add_exercise_accessibility"
+            android:focusable="true"
+            android:src="@drawable/ic_plus_circle"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/exercise_input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/reps_input"
+            app:layout_constraintTop_toTopOf="@id/exercise_input"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

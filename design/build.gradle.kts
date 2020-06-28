@@ -44,6 +44,7 @@ dependencies {
     implementation(Dependencies.androidKtxCore)
     implementation(Dependencies.androidAppCompat)
     implementation(Dependencies.material)
+    implementation(Dependencies.constraintLayout)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.androidXJunit)

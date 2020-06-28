@@ -47,6 +47,8 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
             if (text.isNullOrEmpty()) {
                 weightInputLayout.hide(keepSize = true)
                 repetitionsInputLayout.hide(keepSize = true)
+                weight.text?.clear()
+                repetitions.text?.clear()
                 actionButton.hide(keepSize = true)
             } else {
                 weightInputLayout.show()
@@ -64,6 +66,7 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
         if (text.isEmpty() || !isVisible) {
             repetitionsInputLayout.hide(keepSize = true)
             actionButton.hide(keepSize = true)
+            repetitions.text?.clear()
         } else {
             repetitionsInputLayout.show()
         }

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/exercise"
-    style="?android:attr/dropDownItemStyle"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="?android:attr/listPreferredItemHeight"
-    android:ellipsize="none"
-    android:singleLine="true"
-    android:textAppearance="?android:attr/textAppearanceLargePopupMenu" />
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/exercise"
+        style="?android:attr/dropDownItemStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:ellipsize="none"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceLargePopupMenu" />
+</androidx.appcompat.widget.LinearLayoutCompat>
+
 
 
