@@ -53,10 +53,14 @@ class PostWorkoutFragment(private val viewModel: PostWorkoutViewModel) : Fragmen
 
     private fun onActionClick(child: View) {
         val indexOfChild = binding.exercisesContainer.indexOfChild(child)
-        if (indexOfChild != binding.exercisesContainer.size - 1)
+        if (indexOfChild != binding.exercisesContainer.size - 1) {
             removeLine(child)
-        else
+            if (binding.exercisesContainer.size == 1)
+                binding.save.hide()
+        } else {
             addLine()
+            binding.save.show()
+        }
     }
 
     private fun removeLine(child: View) {
