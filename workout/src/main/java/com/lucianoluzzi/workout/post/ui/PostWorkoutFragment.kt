@@ -4,12 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.transition.TransitionInflater
 import androidx.transition.TransitionManager
 import com.lucianoluzzi.design.widget.WorkoutLine
+import com.lucianoluzzi.utils.hide
+import com.lucianoluzzi.utils.show
+import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.FragmentPostWorkoutBinding
 import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
 
@@ -26,7 +35,16 @@ class PostWorkoutFragment(private val viewModel: PostWorkoutViewModel) : Fragmen
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setToolbar()
+
         return binding.root
+    }
+
+    private fun setToolbar() {
+        val navController =
+            Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,10 +73,13 @@ class PostWorkoutFragment(private val viewModel: PostWorkoutViewModel) : Fragmen
         val indexOfChild = binding.exercisesContainer.indexOfChild(child)
         if (indexOfChild != binding.exercisesContainer.size - 1) {
             removeLine(child)
-            if (binding.exercisesContainer.size == 1)
+            if (binding.exercisesContainer.size == 1) {
                 binding.save.hide()
+                changeShareVisibility(false)
+            }
         } else {
             addLine()
+            changeShareVisibility(true)
             binding.save.show()
         }
     }
@@ -69,5 +90,16 @@ class PostWorkoutFragment(private val viewModel: PostWorkoutViewModel) : Fragmen
         TransitionManager.beginDelayedTransition(binding.exercisesContainer, transition)
 
         binding.exercisesContainer.removeView(child)
+    }
+
+    private fun changeShareVisibility(isShow: Boolean) {
+        val transition = TransitionInflater.from(requireContext())
+            .inflateTransition(android.R.transition.explode)
+        TransitionManager.beginDelayedTransition(binding.toolbarContentContainer, transition)
+
+        if (isShow)
+            binding.share.show()
+        else
+            binding.share.hide(keepSize = true)
     }
 }

@@ -2,6 +2,7 @@
     package="com.lucianoluzzi.workout">
 
     <application>
-        <activity android:name=".feed.ui.FeedActivity"/>
+        <activity android:name=".feed.ui.FeedActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 </manifest>

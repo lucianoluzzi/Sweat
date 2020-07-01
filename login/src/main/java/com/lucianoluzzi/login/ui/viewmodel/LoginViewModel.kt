@@ -32,8 +32,11 @@ class LoginViewModel(
                 facebookProfile = facebookProfile
             )
 
-            val loginResponse = doLoginUseCase.doLogin(convertedProfile)
-            _loginState.value = getLoginResponseState(loginResponse)
+            _loginState.value = LoginResponseState.Success(
+                com.lucianoluzzi.domain.Profile(name = "", email = "")
+            )
+            // val loginResponse = doLoginUseCase.doLogin(convertedProfile)
+            // _loginState.value = getLoginResponseState(loginResponse)
         }
     }
 
