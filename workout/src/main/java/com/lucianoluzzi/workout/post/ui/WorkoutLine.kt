@@ -1,4 +1,4 @@
-package com.lucianoluzzi.design.widget
+package com.lucianoluzzi.workout.post.ui
 
 import android.content.Context
 import android.widget.ArrayAdapter
@@ -12,6 +12,7 @@ import com.lucianoluzzi.design.R
 import com.lucianoluzzi.utils.hide
 import com.lucianoluzzi.utils.isVisible
 import com.lucianoluzzi.utils.show
+import com.lucianoluzzi.workout.post.ui.uimodel.WorkoutLineModel
 
 
 class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
@@ -103,4 +104,18 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
             onClickListener()
         }
     }
+
+    fun setViewsContent(workoutLineModel: WorkoutLineModel) {
+        with(workoutLineModel) {
+            workoutName.setText(exerciseName)
+            weight.setText(exerciseWeight)
+            repetitions.setText(exerciseRepetitions)
+        }
+    }
+
+    fun getWorkoutLineModel() = WorkoutLineModel(
+        exerciseName = workoutName.text.toString(),
+        exerciseWeight = weight.text.toString(),
+        exerciseRepetitions = repetitions.text.toString()
+    )
 }
