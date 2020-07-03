@@ -23,12 +23,12 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class PostWorkoutFragment : Fragment() {
 
     private val viewModel by viewModel<PostWorkoutViewModel>()
-
-    private lateinit var exercisesList: List<String>
     private val binding by lazy {
         val inflater = LayoutInflater.from(requireContext())
         FragmentPostWorkoutBinding.inflate(inflater)
     }
+
+    private lateinit var exercisesList: List<String>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -73,7 +73,7 @@ class PostWorkoutFragment : Fragment() {
         }
         child.setAutoCompleteList(exercisesList)
         workoutLine?.let {
-            child.setViewsContent(it)
+            child.setViewsContent(it, shouldDisplayDeleteActionButton(it))
         }
 
         val transition = TransitionInflater.from(requireContext())
@@ -83,8 +83,15 @@ class PostWorkoutFragment : Fragment() {
         binding.exercisesContainer.addView(child)
     }
 
+    private fun shouldDisplayDeleteActionButton(child: WorkoutLineModel): Boolean {
+        return with(viewModel.workoutLines) {
+            lastIndex != indexOf(child)
+        }
+    }
+
     private fun onActionClick(child: WorkoutLine) {
         val indexOfChild = binding.exercisesContainer.indexOfChild(child)
+
         if (indexOfChild != binding.exercisesContainer.size - 1) {
             removeLineFromPersistency(child.getWorkoutLineModel())
             removeLine(child)

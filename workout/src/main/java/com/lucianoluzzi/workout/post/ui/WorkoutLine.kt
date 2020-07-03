@@ -95,21 +95,19 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
 
     fun setActionClickListener(onClickListener: () -> Unit) {
         actionButton.setOnClickListener {
-            actionButton.setImageDrawable(
-                resources.getDrawable(
-                    R.drawable.ic_delete_circle,
-                    context.theme
-                )
-            )
+            setDeleteIcon()
             onClickListener()
         }
     }
 
-    fun setViewsContent(workoutLineModel: WorkoutLineModel) {
+    fun setViewsContent(workoutLineModel: WorkoutLineModel, isDeleteIcon: Boolean = true) {
         with(workoutLineModel) {
             workoutName.setText(exerciseName)
             weight.setText(exerciseWeight)
             repetitions.setText(exerciseRepetitions)
+
+            if (isDeleteIcon)
+                setDeleteIcon()
         }
     }
 
@@ -118,4 +116,13 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
         exerciseWeight = weight.text.toString(),
         exerciseRepetitions = repetitions.text.toString()
     )
+
+    private fun setDeleteIcon() {
+        actionButton.setImageDrawable(
+            resources.getDrawable(
+                R.drawable.ic_delete_circle,
+                context.theme
+            )
+        )
+    }
 }
