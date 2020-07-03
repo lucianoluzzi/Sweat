@@ -18,8 +18,11 @@ import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.FragmentPostWorkoutBinding
 import com.lucianoluzzi.workout.post.ui.uimodel.WorkoutLineModel
 import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
-class PostWorkoutFragment(private val viewModel: PostWorkoutViewModel) : Fragment() {
+class PostWorkoutFragment : Fragment() {
+
+    private val viewModel by viewModel<PostWorkoutViewModel>()
 
     private lateinit var exercisesList: List<String>
     private val binding by lazy {

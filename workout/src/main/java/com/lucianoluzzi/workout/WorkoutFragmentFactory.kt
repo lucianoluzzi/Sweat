@@ -8,8 +8,7 @@ import com.lucianoluzzi.workout.post.ui.PostWorkoutFragment
 import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
 
 class WorkoutFragmentFactory(
-    private val feedViewModel: FeedViewModel,
-    private val postWorkoutViewModel: PostWorkoutViewModel
+    private val feedViewModel: FeedViewModel
 ) : FragmentFactory() {
 
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment =
@@ -17,7 +16,7 @@ class WorkoutFragmentFactory(
             FeedFragment::class.java.name -> FeedFragment(
                 feedViewModel
             )
-            PostWorkoutFragment::class.java.name -> PostWorkoutFragment(postWorkoutViewModel)
+            PostWorkoutFragment::class.java.name -> PostWorkoutFragment()
             else -> super.instantiate(classLoader, className)
         }
 }
