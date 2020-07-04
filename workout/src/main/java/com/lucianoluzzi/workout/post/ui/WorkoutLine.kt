@@ -14,7 +14,6 @@ import com.lucianoluzzi.utils.isVisible
 import com.lucianoluzzi.utils.show
 import com.lucianoluzzi.workout.post.ui.uimodel.WorkoutLineModel
 
-
 class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
 
     private val workoutName: AutoCompleteTextView
