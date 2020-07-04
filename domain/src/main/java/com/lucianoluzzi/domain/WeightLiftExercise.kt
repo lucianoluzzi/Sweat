@@ -2,11 +2,11 @@ package com.lucianoluzzi.domain
 
 data class WeightLiftExercise(
     override val name: String,
-    override val imageUrl: String,
+    override val imageUrl: String? = null,
     val repetitions: Int,
     val weight: Int,
-    val muscleGroup: List<Muscle>,
-    val equipments: List<Equipment>?
+    val muscleGroup: List<Muscle>? = null,
+    val equipments: List<Equipment>? = null
 ) : Exercise {
 
     override fun calorieSpent(): Int {
