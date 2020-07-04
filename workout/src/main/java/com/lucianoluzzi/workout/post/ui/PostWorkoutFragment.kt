@@ -72,6 +72,7 @@ class PostWorkoutFragment : Fragment() {
             onActionClick(child)
         }
         child.setAutoCompleteList(exercisesList)
+
         workoutLine?.let {
             child.setViewsContent(it, shouldDisplayDeleteActionButton(it))
         }
