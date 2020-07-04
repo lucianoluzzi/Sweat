@@ -1,6 +1,8 @@
 package com.lucianoluzzi.workout.post.ui
 
 import android.content.Context
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageView
@@ -9,6 +11,7 @@ import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.lucianoluzzi.design.R
+import com.lucianoluzzi.utils.doNothing
 import com.lucianoluzzi.utils.hide
 import com.lucianoluzzi.utils.isVisible
 import com.lucianoluzzi.utils.show
@@ -57,9 +60,28 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
     }
 
     private fun setWeightTextChangedListener() {
-        weight.doOnTextChanged { text, _, _, _ ->
-            onWeightVisibilityOrTextChanged(weight.isVisible(), text.toString())
+        val textWatcher = object : TextWatcher {
+            override fun afterTextChanged(editable: Editable?) = doNothing
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) =
+                doNothing
+
+            override fun onTextChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
+                text?.let {
+                    val unmaskedText = it.toString().replace(" kg", "")
+                    val weightWithUnit = context.getString(R.string.weight_mask, unmaskedText)
+
+                    weight.removeTextChangedListener(this)
+                    weight.setText(weightWithUnit)
+                    weight.setSelection(weightWithUnit.length - 3)
+                    weight.addTextChangedListener(this)
+
+                    onWeightVisibilityOrTextChanged(weight.isVisible(), it.toString())
+                }
+            }
         }
+
+        weight.addTextChangedListener(textWatcher)
     }
 
     private fun onWeightVisibilityOrTextChanged(isVisible: Boolean, text: String) {

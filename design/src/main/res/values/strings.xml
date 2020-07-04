@@ -4,6 +4,7 @@
     <string name="weight_label">Weight</string>
     <string name="reps_hint">Reps</string>
     <string name="add_exercise_accessibility">Add exercise</string>
+    <string name="weight_mask">%1$s kg</string>
 
     <string name="exercise_accessibility">Exercise</string>
     <string name="weight_accessibility">Weight</string>
