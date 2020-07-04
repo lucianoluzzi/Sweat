@@ -8,16 +8,19 @@ import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.transition.TransitionInflater
 import androidx.transition.TransitionManager
+import com.lucianoluzzi.domain.WeightLiftExercise
+import com.lucianoluzzi.domain.Workout
 import com.lucianoluzzi.utils.hide
 import com.lucianoluzzi.utils.show
 import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.FragmentPostWorkoutBinding
-import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
+import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 import com.lucianoluzzi.workout.post.ui.widget.WorkoutLine
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -37,8 +40,29 @@ class PostWorkoutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setToolbar()
+        setShareClick()
 
         return binding.root
+    }
+
+    private fun setShareClick() {
+        binding.share.setOnClickListener {
+            val action =
+                PostWorkoutFragmentDirections.actionPostFragmentToShareDialogFragment(getWorkout())
+            findNavController().navigate(action)
+        }
+    }
+
+    private fun getWorkout(): Workout {
+        val exercises = viewModel.workoutLines.map {
+            WeightLiftExercise(
+                name = it.exerciseName,
+                weight = it.exerciseWeight.replace(" kg", "").toInt(),
+                repetitions = it.exerciseRepetitions.toInt()
+            )
+        }
+
+        return Workout(exercises)
     }
 
     private fun setToolbar() {
@@ -50,6 +74,7 @@ class PostWorkoutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel.exercises.observe(viewLifecycleOwner, Observer {
             exercisesList = it
             setUpLines()

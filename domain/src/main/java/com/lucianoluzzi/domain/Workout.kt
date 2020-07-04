@@ -1,3 +1,5 @@
 package com.lucianoluzzi.domain
 
-data class Workout(val activities: List<Exercise>)
+import java.io.Serializable
+
+data class Workout(val activities: List<Exercise>) : Serializable

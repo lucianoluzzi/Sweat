@@ -2,9 +2,11 @@ package com.lucianoluzzi.workout
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
+import com.lucianoluzzi.domain.Workout
 import com.lucianoluzzi.workout.feed.ui.FeedFragment
 import com.lucianoluzzi.workout.feed.ui.viewModel.FeedViewModel
 import com.lucianoluzzi.workout.post.ui.fragment.PostWorkoutFragment
+import com.lucianoluzzi.workout.post.ui.fragment.ShareDialogFragment
 
 class WorkoutFragmentFactory(
     private val feedViewModel: FeedViewModel
@@ -16,6 +18,7 @@ class WorkoutFragmentFactory(
                 feedViewModel
             )
             PostWorkoutFragment::class.java.name -> PostWorkoutFragment()
+            ShareDialogFragment::class.java.name -> ShareDialogFragment()
             else -> super.instantiate(classLoader, className)
         }
 }
