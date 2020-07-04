@@ -17,6 +17,6 @@
     </fragment>
     <fragment
         android:id="@+id/postFragment"
-        android:name="com.lucianoluzzi.workout.post.ui.PostWorkoutFragment"
+        android:name="com.lucianoluzzi.workout.post.ui.fragment.PostWorkoutFragment"
         android:label="PostFragment" />
 </navigation>

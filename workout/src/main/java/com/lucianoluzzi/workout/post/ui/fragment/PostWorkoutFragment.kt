@@ -1,4 +1,4 @@
-package com.lucianoluzzi.workout.post.ui
+package com.lucianoluzzi.workout.post.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,8 +16,9 @@ import com.lucianoluzzi.utils.hide
 import com.lucianoluzzi.utils.show
 import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.FragmentPostWorkoutBinding
-import com.lucianoluzzi.workout.post.ui.uimodel.WorkoutLineModel
+import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
+import com.lucianoluzzi.workout.post.ui.widget.WorkoutLine
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class PostWorkoutFragment : Fragment() {

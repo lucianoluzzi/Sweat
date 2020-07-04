@@ -4,8 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.lucianoluzzi.workout.feed.ui.FeedFragment
 import com.lucianoluzzi.workout.feed.ui.viewModel.FeedViewModel
-import com.lucianoluzzi.workout.post.ui.PostWorkoutFragment
-import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
+import com.lucianoluzzi.workout.post.ui.fragment.PostWorkoutFragment
 
 class WorkoutFragmentFactory(
     private val feedViewModel: FeedViewModel

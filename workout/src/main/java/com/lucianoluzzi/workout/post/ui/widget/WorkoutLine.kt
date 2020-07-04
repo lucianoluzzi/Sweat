@@ -1,4 +1,4 @@
-package com.lucianoluzzi.workout.post.ui
+package com.lucianoluzzi.workout.post.ui.widget
 
 import android.content.Context
 import android.text.Editable
@@ -15,7 +15,7 @@ import com.lucianoluzzi.utils.doNothing
 import com.lucianoluzzi.utils.hide
 import com.lucianoluzzi.utils.isVisible
 import com.lucianoluzzi.utils.show
-import com.lucianoluzzi.workout.post.ui.uimodel.WorkoutLineModel
+import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 
 class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
 

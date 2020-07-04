@@ -2,7 +2,7 @@ package com.lucianoluzzi.workout.post.ui.viewmodel
 
 import com.google.common.truth.Truth.assertThat
 import com.lucianoluzzi.workout.post.domain.usecase.GetExercisesUseCase
-import com.lucianoluzzi.workout.post.ui.uimodel.WorkoutLineModel
+import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi

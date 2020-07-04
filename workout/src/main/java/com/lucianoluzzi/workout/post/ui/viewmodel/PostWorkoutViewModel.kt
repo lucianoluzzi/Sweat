@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lucianoluzzi.workout.post.domain.usecase.GetExercisesUseCase
-import com.lucianoluzzi.workout.post.ui.uimodel.WorkoutLineModel
+import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 import kotlinx.coroutines.launch
 
 class PostWorkoutViewModel(getExercisesUseCase: GetExercisesUseCase) : ViewModel() {
