@@ -3,18 +3,21 @@ package com.lucianoluzzi.workout.feed.ui.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.lucianoluzzi.domain.Workout
 import com.lucianoluzzi.workout.feed.domain.usecase.RetrieveFeedUseCase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class FeedViewModel(useCase: RetrieveFeedUseCase) : ViewModel() {
-    private val _workout = MutableLiveData<List<Workout>>().apply {
-        listOf<Workout>()
-    }
+    private val mWorkouts = MutableLiveData<List<Workout>>()
+    val workouts: LiveData<List<Workout>> = mWorkouts
 
-    @ExperimentalCoroutinesApi
-    val workouts: LiveData<List<Workout>> = useCase.retrieveFeed().flowOn(Dispatchers.IO).asLiveData()
+    init {
+        viewModelScope.launch {
+            useCase.retrieveFeed().collect {
+                mWorkouts.value = it
+            }
+        }
+    }
 }
