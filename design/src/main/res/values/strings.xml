@@ -10,4 +10,6 @@
     <string name="weight_accessibility">Weight</string>
     <string name="repetitions_accessibility">Repetitions</string>
     <string name="share_accessibility_label">Share</string>
+    <string name="cancel">Cancel</string>
+    <string name="share">Share</string>
 </resources>
