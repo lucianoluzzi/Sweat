@@ -34,10 +34,12 @@ class LoginViewModel(
 
             _loginState.value = LoginResponseState.Success(
                 com.lucianoluzzi.domain.Profile(
-                    name = "Luciano",
-                    email = "lucianoluzzi@hotmail.com"
+                    name = convertedProfile.name,
+                    email = convertedProfile.email
                 )
             )
+
+            // TODO: right now we don't have a working backend, so we will just pass the profile ahead
             // val loginResponse = doLoginUseCase.doLogin(convertedProfile)
             // _loginState.value = getLoginResponseState(loginResponse)
         }
@@ -46,8 +48,16 @@ class LoginViewModel(
     fun doLoginWithGoogle(googleSignInAccount: GoogleSignInAccount) {
         viewModelScope.launch {
             val convertedProfile = getProfileUseCase.getProfile(googleSignInAccount)
-            val loginResponse = doLoginUseCase.doLogin(convertedProfile)
-            _loginState.value = getLoginResponseState(loginResponse)
+            _loginState.value = LoginResponseState.Success(
+                com.lucianoluzzi.domain.Profile(
+                    name = convertedProfile.name,
+                    email = convertedProfile.email
+                )
+            )
+
+            // TODO: right now we don't have a working backend, so we will just pass the profile ahead
+//            val loginResponse = doLoginUseCase.doLogin(convertedProfile)
+//            _loginState.value = getLoginResponseState(loginResponse)
         }
     }
 
