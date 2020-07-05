@@ -10,6 +10,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/content_container"
+            android:background="@android:color/white"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
