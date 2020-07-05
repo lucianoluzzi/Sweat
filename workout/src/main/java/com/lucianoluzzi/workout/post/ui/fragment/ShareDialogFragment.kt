@@ -1,16 +1,22 @@
 package com.lucianoluzzi.workout.post.ui.fragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.FileProvider
 import androidx.fragment.app.DialogFragment
 import com.lucianoluzzi.domain.WeightLiftExercise
 import com.lucianoluzzi.domain.Workout
 import com.lucianoluzzi.utils.DateTimeUtils
+import com.lucianoluzzi.utils.FileUtils
+import com.lucianoluzzi.utils.toBitmap
 import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.ShareDialogFragmentBinding
 import com.lucianoluzzi.workout.post.ui.adapter.ExerciseItemAdapter
+
 
 class ShareDialogFragment : DialogFragment() {
 
@@ -35,6 +41,12 @@ class ShareDialogFragment : DialogFragment() {
     private fun setUpViews() {
         binding.date.text = DateTimeUtils().getDisplayableCurrentDate()
         binding.trainOf.text = getString(R.string.share_workout_name, getProfileName())
+        binding.cancel.setOnClickListener {
+            dismiss()
+        }
+        binding.share.setOnClickListener {
+            share()
+        }
 
         setWorkoutList()
     }
@@ -46,5 +58,29 @@ class ShareDialogFragment : DialogFragment() {
         val exercises = (workout.activities as List<WeightLiftExercise>)
         val exerciseAdapter = ExerciseItemAdapter(exercises)
         binding.exerciseList.adapter = exerciseAdapter
+    }
+
+    private fun share() {
+        val contentBitmap = binding.contentContainer.toBitmap()
+        val fileUtils = FileUtils()
+        var tempFile = fileUtils.createTempFile(
+            requireContext(),
+            "workout${DateTimeUtils().getDateTimeStamp()}"
+        )
+        tempFile = fileUtils.writeBitmapToFile(contentBitmap, tempFile)
+        val uri = FileProvider.getUriForFile(
+            requireContext(),
+            "com.lucianoluzzi.sweat.provider",
+            tempFile
+        )
+        shareFileToInstagram(uri)
+    }
+
+    private fun shareFileToInstagram(uri: Uri) {
+        val share = Intent(Intent.ACTION_SEND)
+        share.type = "image/*"
+        share.putExtra(Intent.EXTRA_STREAM, uri)
+        share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        startActivity(Intent.createChooser(share, "Share to"))
     }
 }

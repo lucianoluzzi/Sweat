@@ -8,34 +8,46 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <TextView
-            android:id="@+id/train_of"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_container"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Luciano's workout" />
+            app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@id/train_of"
-            app:layout_constraintStart_toStartOf="@id/train_of"
-            app:layout_constraintTop_toBottomOf="@id/train_of"
-            tools:text="07/07/2020 - 20:00" />
+            <TextView
+                android:id="@+id/train_of"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Luciano's workout" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/exercise_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/date"
-            tools:listitem="@layout/share_exercise_item" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/train_of"
+                app:layout_constraintStart_toStartOf="@id/train_of"
+                app:layout_constraintTop_toBottomOf="@id/train_of"
+                tools:text="07/07/2020 - 20:00" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/exercise_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/date"
+                tools:listitem="@layout/share_exercise_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/share"
@@ -47,7 +59,7 @@
             android:backgroundTint="@color/colorAccent"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/exercise_list" />
+            app:layout_constraintTop_toBottomOf="@id/content_container" />
 
         <Button
             android:id="@+id/cancel"
