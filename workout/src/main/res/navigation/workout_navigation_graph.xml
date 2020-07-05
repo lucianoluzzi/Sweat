@@ -3,18 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/workout_navigation_graph"
     app:startDestination="@id/feedFragment">
 
-    <activity
-        android:id="@+id/feedActivity"
-        android:name="com.lucianoluzzi.workout.feed.ui.FeedActivity"
-        android:label="FeedActivity" />
-
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.lucianoluzzi.workout.feed.ui.FeedFragment"
         android:label="FeedFragment">
         <action
             android:id="@+id/action_feedFragment_to_postFragment"
-            app:destination="@id/postFragment" />
+            app:destination="@id/postFragment">
+            <argument
+                android:name="profile"
+                app:argType="com.lucianoluzzi.domain.Profile" />
+        </action>
     </fragment>
 
     <fragment
@@ -24,6 +23,9 @@
         <action
             android:id="@+id/action_postFragment_to_shareDialogFragment"
             app:destination="@id/shareDialogFragment">
+            <argument
+                android:name="profile_name"
+                app:argType="string" />
             <argument
                 android:name="exercises"
                 app:argType="com.lucianoluzzi.domain.Workout" />

@@ -33,7 +33,10 @@ class LoginViewModel(
             )
 
             _loginState.value = LoginResponseState.Success(
-                com.lucianoluzzi.domain.Profile(name = "", email = "")
+                com.lucianoluzzi.domain.Profile(
+                    name = "Luciano",
+                    email = "lucianoluzzi@hotmail.com"
+                )
             )
             // val loginResponse = doLoginUseCase.doLogin(convertedProfile)
             // _loginState.value = getLoginResponseState(loginResponse)

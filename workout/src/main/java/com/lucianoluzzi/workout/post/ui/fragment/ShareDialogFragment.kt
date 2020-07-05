@@ -8,6 +8,7 @@ import androidx.fragment.app.DialogFragment
 import com.lucianoluzzi.domain.WeightLiftExercise
 import com.lucianoluzzi.domain.Workout
 import com.lucianoluzzi.utils.DateTimeUtils
+import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.ShareDialogFragmentBinding
 import com.lucianoluzzi.workout.post.ui.adapter.ExerciseItemAdapter
 
@@ -33,9 +34,12 @@ class ShareDialogFragment : DialogFragment() {
 
     private fun setUpViews() {
         binding.date.text = DateTimeUtils().getDisplayableCurrentDate()
+        binding.trainOf.text = getString(R.string.share_workout_name, getProfileName())
 
         setWorkoutList()
     }
+
+    private fun getProfileName() = requireArguments().getString("profile_name")
 
     private fun setWorkoutList() {
         val workout = requireArguments().getSerializable("exercises") as Workout

@@ -21,10 +21,10 @@ import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.lucianoluzzi.login.databinding.FragmentLoginBinding
-import com.lucianoluzzi.login.domain.entities.google.GoogleSessionManager
 import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.domain.entities.facebook.FacebookSessionManager
 import com.lucianoluzzi.login.domain.entities.facebook.Permissions
+import com.lucianoluzzi.login.domain.entities.google.GoogleSessionManager
 import com.lucianoluzzi.login.ui.extensions.onLogin
 import com.lucianoluzzi.login.ui.viewmodel.LoginViewModel
 import com.lucianoluzzi.networkbuilder.domain.entities.ErrorResponse
@@ -140,11 +140,8 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
     private fun navigateToUserFeed(profile: com.lucianoluzzi.domain.Profile) {
         binding.progress.hide()
 
-        val intent = Intent().apply {
-            arguments = Bundle().apply {
-                putExtra("PROFILE", profile)
-            }
-        }
+        val intent = Intent()
+        intent.putExtra("PROFILE", profile)
         intent.setClassName(requireContext(), "com.lucianoluzzi.workout.feed.ui.FeedActivity")
         startActivity(intent)
     }

@@ -1,5 +1,6 @@
 package com.lucianoluzzi.workout.di
 
+import com.lucianoluzzi.domain.Profile
 import com.lucianoluzzi.workout.WorkoutFragmentFactory
 import com.lucianoluzzi.workout.feed.domain.usecase.RetrieveFeedUseCaseImpl
 import com.lucianoluzzi.workout.feed.repository.FeedRepositoryImpl
@@ -20,8 +21,9 @@ object WorkoutModule {
             PostWorkoutViewModel(GetExercisesUseCase())
         }
 
-        factory {
+        factory { (profile: Profile) ->
             WorkoutFragmentFactory(
+                profile,
                 get() as FeedViewModel
             )
         }

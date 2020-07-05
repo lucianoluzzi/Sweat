@@ -13,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.transition.TransitionInflater
 import androidx.transition.TransitionManager
+import com.lucianoluzzi.domain.Profile
 import com.lucianoluzzi.domain.WeightLiftExercise
 import com.lucianoluzzi.domain.Workout
 import com.lucianoluzzi.utils.hide
@@ -47,8 +48,10 @@ class PostWorkoutFragment : Fragment() {
 
     private fun setShareClick() {
         binding.share.setOnClickListener {
+            val profile = requireArguments().getSerializable("profile") as Profile
+
             val action =
-                PostWorkoutFragmentDirections.actionPostFragmentToShareDialogFragment(getWorkout())
+                PostWorkoutFragmentDirections.actionPostFragmentToShareDialogFragment(profile.name, getWorkout())
             findNavController().navigate(action)
         }
     }
