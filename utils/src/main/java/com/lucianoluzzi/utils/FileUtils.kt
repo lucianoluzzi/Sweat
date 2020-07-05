@@ -15,7 +15,7 @@ class FileUtils {
     fun writeBitmapToFile(bitmap: Bitmap, file: File): File {
         val fileOutputStream = FileOutputStream(file)
 
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream)
         fileOutputStream.flush()
         fileOutputStream.close()
 

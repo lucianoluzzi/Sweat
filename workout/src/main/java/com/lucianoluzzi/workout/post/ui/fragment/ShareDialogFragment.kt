@@ -73,7 +73,7 @@ class ShareDialogFragment : DialogFragment() {
             "com.lucianoluzzi.sweat.provider",
             tempFile
         )
-        shareFileToInstagram(uri)
+        shareFileToInstagram2(uri)
     }
 
     private fun shareFileToInstagram(uri: Uri) {
@@ -82,5 +82,28 @@ class ShareDialogFragment : DialogFragment() {
         share.putExtra(Intent.EXTRA_STREAM, uri)
         share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         startActivity(Intent.createChooser(share, "Share to"))
+    }
+
+    private fun shareFileToInstagram2(uri: Uri) {
+        val attributionLinkUrl =
+            "https://play.google.com/store/apps/details?id=br.com.unicredmobile"
+
+        val intent = Intent("com.instagram.share.ADD_TO_STORY").apply {
+            type = "image/jpeg"
+            putExtra("interactive_asset_uri", uri)
+            putExtra("content_url", attributionLinkUrl)
+            putExtra("top_background_color", "#33FF33")
+            putExtra("bottom_background_color", "#FF00FF")
+        }
+
+        val activity = requireActivity().apply {
+            grantUriPermission(
+                "com.instagram.android", uri, Intent.FLAG_GRANT_READ_URI_PERMISSION
+            )
+        }
+        val resolveActivity = activity.packageManager.resolveActivity(intent, 0)
+        resolveActivity?.let {
+            activity.startActivityForResult(intent, 0)
+        }
     }
 }
