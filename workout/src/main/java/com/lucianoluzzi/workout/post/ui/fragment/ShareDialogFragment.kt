@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.lucianoluzzi.domain.WeightLiftExercise
 import com.lucianoluzzi.domain.Workout
+import com.lucianoluzzi.utils.DateTimeUtils
 import com.lucianoluzzi.workout.databinding.ShareDialogFragmentBinding
 import com.lucianoluzzi.workout.post.ui.adapter.ExerciseItemAdapter
 
@@ -31,8 +32,13 @@ class ShareDialogFragment : DialogFragment() {
     }
 
     private fun setUpViews() {
-        val workout = requireArguments().getSerializable("exercises") as Workout
+        binding.date.text = DateTimeUtils().getDisplayableCurrentDate()
 
+        setWorkoutList()
+    }
+
+    private fun setWorkoutList() {
+        val workout = requireArguments().getSerializable("exercises") as Workout
         val exercises = (workout.activities as List<WeightLiftExercise>)
         val exerciseAdapter = ExerciseItemAdapter(exercises)
         binding.exerciseList.adapter = exerciseAdapter
