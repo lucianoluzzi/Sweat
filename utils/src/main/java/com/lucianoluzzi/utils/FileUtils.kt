@@ -9,7 +9,7 @@ class FileUtils {
     fun createTempFile(context: Context, fileName: String): File {
         val workoutsDirectory = File(context.cacheDir, "workout")
         workoutsDirectory.mkdir()
-        return File.createTempFile(fileName, null, workoutsDirectory)
+        return File(workoutsDirectory.path, "${fileName}.jpg")
     }
 
     fun writeBitmapToFile(bitmap: Bitmap, file: File): File {
