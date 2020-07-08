@@ -2,7 +2,7 @@
 <resources>
     <string name="facebook_app_id">671809220043250</string>
     <string name="fb_login_protocol_scheme">fb671809220043250</string>
-    <string name="app_name">Sweat</string>
+    <string name="app_name">FitNet</string>
 
-    <string name="welcome">Welcome to Sweat, your fit network!</string>
+    <string name="welcome">Welcome to FitNet, your fit network!</string>
 </resources>

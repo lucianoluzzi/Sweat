@@ -1,4 +1,4 @@
-package com.lucianoluzzi.sweat
+package com.lucianoluzzi.fitnet
 
 import android.app.Application
 import com.lucianoluzzi.login.di.LoginModule
