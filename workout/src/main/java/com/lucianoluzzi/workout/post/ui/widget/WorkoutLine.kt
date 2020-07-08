@@ -13,7 +13,6 @@ import com.google.android.material.textfield.TextInputLayout
 import com.lucianoluzzi.design.R
 import com.lucianoluzzi.utils.doNothing
 import com.lucianoluzzi.utils.hide
-import com.lucianoluzzi.utils.isVisible
 import com.lucianoluzzi.utils.show
 import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 
@@ -47,15 +46,10 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
 
     private fun setWorkoutTextChangedListener() {
         workoutName.doOnTextChanged { text, _, _, _ ->
-            if (text.isNullOrEmpty()) {
-                weightInputLayout.hide(keepSize = true)
-                repetitionsInputLayout.hide(keepSize = true)
-                weight.text?.clear()
-                repetitions.text?.clear()
+            if (text.isNullOrEmpty() || weight.text.isNullOrEmpty() || repetitions.text.isNullOrEmpty())
                 actionButton.hide(keepSize = true)
-            } else {
-                weightInputLayout.show()
-            }
+            else
+                actionButton.show()
         }
     }
 
@@ -76,7 +70,10 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
                     weight.setSelection(weightWithUnit.length - 3)
                     weight.addTextChangedListener(this)
 
-                    onWeightVisibilityOrTextChanged(weight.isVisible(), it.toString())
+                    if (text.isNullOrEmpty() || workoutName.text.isNullOrEmpty() || repetitions.text.isNullOrEmpty())
+                        actionButton.hide(keepSize = true)
+                    else
+                        actionButton.show()
                 }
             }
         }
@@ -84,23 +81,12 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
         weight.addTextChangedListener(textWatcher)
     }
 
-    private fun onWeightVisibilityOrTextChanged(isVisible: Boolean, text: String) {
-        if (text.isEmpty() || !isVisible) {
-            repetitionsInputLayout.hide(keepSize = true)
-            actionButton.hide(keepSize = true)
-            repetitions.text?.clear()
-        } else {
-            repetitionsInputLayout.show()
-        }
-    }
-
     private fun setRepetitionsTextChangedListener() {
         repetitions.doOnTextChanged { text, _, _, _ ->
-            if (text.isNullOrEmpty()) {
+            if (text.isNullOrEmpty() || weight.text.isNullOrEmpty() || workoutName.text.isNullOrEmpty())
                 actionButton.hide(keepSize = true)
-            } else {
+            else
                 actionButton.show()
-            }
         }
     }
 
