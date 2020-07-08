@@ -15,9 +15,9 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,11 +42,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@{Integer.toString(exercise.weight) + ` kg`}"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@{Integer.toString(exercise.weight) + ` kilos`}"
+                android:text="@{Integer.toString(exercise.weight) + ` kg`}"
+                app:layout_constraintEnd_toStartOf="@id/repetitions"
                 app:layout_constraintBottom_toBottomOf="@id/name"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@id/name"
                 app:layout_constraintTop_toTopOf="@id/name"
+                app:layout_constraintVertical_bias="1.0"
                 tools:text="4kg" />
 
             <TextView
@@ -56,11 +60,12 @@
                 android:layout_marginStart="16dp"
                 android:text="@{exercise.repetitions + `x`}"
                 android:contentDescription="@{exercise.repetitions + ` repetitions`}"
-                app:layout_constraintBottom_toBottomOf="@id/name"
-                app:layout_constraintStart_toEndOf="@id/weight"
-                app:layout_constraintTop_toTopOf="@id/name"
+                app:layout_constraintBottom_toBottomOf="@id/weight"
+                app:layout_constraintTop_toTopOf="@id/weight"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 tools:text="20x" />
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

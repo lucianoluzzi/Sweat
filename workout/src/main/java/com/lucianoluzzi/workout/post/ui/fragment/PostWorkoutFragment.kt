@@ -16,8 +16,6 @@ import androidx.transition.TransitionManager
 import com.lucianoluzzi.domain.Profile
 import com.lucianoluzzi.domain.WeightLiftExercise
 import com.lucianoluzzi.domain.Workout
-import com.lucianoluzzi.utils.hide
-import com.lucianoluzzi.utils.show
 import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.FragmentPostWorkoutBinding
 import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
@@ -126,14 +124,14 @@ class PostWorkoutFragment : Fragment() {
             removeLineFromPersistency(child.getWorkoutLineModel())
             removeLine(child)
             if (binding.exercisesContainer.size == 1) {
-                binding.save.hide()
+                binding.share.hide()
                 changeShareVisibility(false)
             }
         } else {
             saveLineInPersistency(child.getWorkoutLineModel())
             addLine()
             changeShareVisibility(true)
-            binding.save.show()
+            binding.share.show()
         }
     }
 
@@ -153,7 +151,7 @@ class PostWorkoutFragment : Fragment() {
         if (isShow)
             binding.share.show()
         else
-            binding.share.hide(keepSize = true)
+            binding.share.hide()
     }
 
     private fun saveLineInPersistency(workoutLineModel: WorkoutLineModel) =
