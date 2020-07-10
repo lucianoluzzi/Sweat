@@ -14,18 +14,16 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.transition.TransitionInflater
 import androidx.transition.TransitionManager
 import com.lucianoluzzi.domain.Profile
-import com.lucianoluzzi.domain.WeightLiftExercise
-import com.lucianoluzzi.domain.Workout
 import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.FragmentPostWorkoutBinding
 import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
 import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 import com.lucianoluzzi.workout.post.ui.widget.WorkoutLine
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class PostWorkoutFragment : Fragment() {
 
-    private val viewModel by viewModel<PostWorkoutViewModel>()
+    private val viewModel by sharedViewModel<PostWorkoutViewModel>()
     private val binding by lazy {
         val inflater = LayoutInflater.from(requireContext())
         FragmentPostWorkoutBinding.inflate(inflater)
@@ -49,21 +47,12 @@ class PostWorkoutFragment : Fragment() {
             val profile = requireArguments().getSerializable("profile") as Profile
 
             val action =
-                PostWorkoutFragmentDirections.actionPostFragmentToShareDialogFragment(profile.name, getWorkout())
+                PostWorkoutFragmentDirections.actionPostFragmentToShareDialogFragment(
+                    profile.name,
+                    viewModel.getWorkout()
+                )
             findNavController().navigate(action)
         }
-    }
-
-    private fun getWorkout(): Workout {
-        val exercises = viewModel.workoutLines.map {
-            WeightLiftExercise(
-                name = it.exerciseName,
-                weight = it.exerciseWeight.replace(" kg", "").toInt(),
-                repetitions = it.exerciseRepetitions.toInt()
-            )
-        }
-
-        return Workout(exercises)
     }
 
     private fun setToolbar() {
@@ -86,8 +75,11 @@ class PostWorkoutFragment : Fragment() {
         if (viewModel.workoutLines.isEmpty()) {
             addLine()
         } else {
-            for (workoutLine in viewModel.workoutLines) {
-                addLine(workoutLine)
+            for (index in viewModel.workoutLines.indices) {
+                addLine(viewModel.workoutLines[index])
+                if (index == viewModel.workoutLines.lastIndex) {
+                    addLine()
+                }
             }
         }
     }
@@ -101,7 +93,7 @@ class PostWorkoutFragment : Fragment() {
         child.setAutoCompleteList(exercisesList)
 
         workoutLine?.let {
-            child.setViewsContent(it, shouldDisplayDeleteActionButton(it))
+            child.setViewsContent(it)
         }
 
         val transition = TransitionInflater.from(requireContext())
@@ -109,12 +101,6 @@ class PostWorkoutFragment : Fragment() {
         TransitionManager.beginDelayedTransition(binding.exercisesContainer, transition)
 
         binding.exercisesContainer.addView(child)
-    }
-
-    private fun shouldDisplayDeleteActionButton(child: WorkoutLineModel): Boolean {
-        return with(viewModel.workoutLines) {
-            lastIndex != indexOf(child)
-        }
     }
 
     private fun onActionClick(child: WorkoutLine) {

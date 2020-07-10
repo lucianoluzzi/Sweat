@@ -107,14 +107,12 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
         }
     }
 
-    fun setViewsContent(workoutLineModel: WorkoutLineModel, isDeleteIcon: Boolean = true) {
+    fun setViewsContent(workoutLineModel: WorkoutLineModel) {
         with(workoutLineModel) {
             workoutName.setText(exerciseName)
             weight.setText(exerciseWeight)
             repetitions.setText(exerciseRepetitions)
-
-            if (isDeleteIcon)
-                setDeleteIcon()
+            setDeleteIcon()
         }
     }
 
