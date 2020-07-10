@@ -42,6 +42,14 @@ class PostWorkoutFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (viewModel.workoutLines.isEmpty() && binding.exercisesContainer.size > 1) {
+            binding.exercisesContainer.removeAllViews()
+            addLine()
+        }
+    }
+
     private fun setShareClick() {
         binding.share.setOnClickListener {
             val profile = requireArguments().getSerializable("profile") as Profile

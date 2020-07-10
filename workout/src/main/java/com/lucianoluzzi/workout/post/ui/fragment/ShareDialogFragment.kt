@@ -16,10 +16,13 @@ import com.lucianoluzzi.utils.toBitmap
 import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.ShareDialogFragmentBinding
 import com.lucianoluzzi.workout.post.ui.adapter.ExerciseItemAdapter
+import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 
 class ShareDialogFragment : DialogFragment() {
 
+    private val viewModel by sharedViewModel<PostWorkoutViewModel>()
     private val binding by lazy {
         val inflater = LayoutInflater.from(context)
         ShareDialogFragmentBinding.inflate(inflater)
@@ -46,6 +49,8 @@ class ShareDialogFragment : DialogFragment() {
         }
         binding.share.setOnClickListener {
             share()
+            viewModel.clearWorkout()
+            dismiss()
         }
 
         setWorkoutList()
