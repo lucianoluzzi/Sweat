@@ -26,9 +26,6 @@
             <argument
                 android:name="profile_name"
                 app:argType="string" />
-            <argument
-                android:name="exercises"
-                app:argType="com.lucianoluzzi.domain.Workout" />
         </action>
     </fragment>
 

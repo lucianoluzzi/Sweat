@@ -56,8 +56,7 @@ class PostWorkoutFragment : Fragment() {
 
             val action =
                 PostWorkoutFragmentDirections.actionPostFragmentToShareDialogFragment(
-                    profile.name,
-                    viewModel.getWorkout()
+                    profile.name
                 )
             findNavController().navigate(action)
         }

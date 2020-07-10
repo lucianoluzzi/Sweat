@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.core.content.FileProvider
 import androidx.fragment.app.DialogFragment
 import com.lucianoluzzi.domain.WeightLiftExercise
-import com.lucianoluzzi.domain.Workout
 import com.lucianoluzzi.utils.DateTimeUtils
 import com.lucianoluzzi.utils.FileUtils
 import com.lucianoluzzi.utils.toBitmap
@@ -59,7 +58,7 @@ class ShareDialogFragment : DialogFragment() {
     private fun getProfileName() = requireArguments().getString("profile_name")
 
     private fun setWorkoutList() {
-        val workout = requireArguments().getSerializable("exercises") as Workout
+        val workout = viewModel.getWorkout()
         val exercises = (workout.activities as List<WeightLiftExercise>)
         val exerciseAdapter = ExerciseItemAdapter(exercises)
         binding.exerciseList.adapter = exerciseAdapter
