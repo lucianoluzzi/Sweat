@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/workout_navigation_graph"
-    app:startDestination="@id/feedFragment">
+    app:startDestination="@id/postFragment">
 
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.lucianoluzzi.workout.feed.ui.FeedFragment"
-        android:label="FeedFragment">
-        <action
-            android:id="@+id/action_feedFragment_to_postFragment"
-            app:destination="@id/postFragment">
-            <argument
-                android:name="profile"
-                app:argType="com.lucianoluzzi.domain.Profile" />
-        </action>
-    </fragment>
+        android:label="FeedFragment"/>
 
     <fragment
         android:id="@+id/postFragment"

@@ -19,7 +19,7 @@ class WorkoutFragmentFactory(
                 profile,
                 feedViewModel
             )
-            PostWorkoutFragment::class.java.name -> PostWorkoutFragment()
+            PostWorkoutFragment::class.java.name -> PostWorkoutFragment(profile)
             ShareDialogFragment::class.java.name -> ShareDialogFragment()
             else -> super.instantiate(classLoader, className)
         }

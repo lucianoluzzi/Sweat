@@ -21,7 +21,7 @@ import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 import com.lucianoluzzi.workout.post.ui.widget.WorkoutLine
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
-class PostWorkoutFragment : Fragment() {
+class PostWorkoutFragment(private val profile: Profile) : Fragment() {
 
     private val viewModel by sharedViewModel<PostWorkoutViewModel>()
     private val binding by lazy {
@@ -52,8 +52,6 @@ class PostWorkoutFragment : Fragment() {
 
     private fun setShareClick() {
         binding.share.setOnClickListener {
-            val profile = requireArguments().getSerializable("profile") as Profile
-
             val action =
                 PostWorkoutFragmentDirections.actionPostFragmentToShareDialogFragment(
                     profile.name
