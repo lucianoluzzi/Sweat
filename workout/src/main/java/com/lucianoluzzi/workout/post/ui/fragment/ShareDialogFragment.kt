@@ -74,7 +74,7 @@ class ShareDialogFragment : DialogFragment() {
         tempFile = fileUtils.writeBitmapToFile(contentBitmap, tempFile)
         val uri = FileProvider.getUriForFile(
             requireContext(),
-            "com.lucianoluzzi.sweat.provider",
+            "com.lucianoluzzi.fitnet.provider",
             tempFile
         )
         shareFile(uri)

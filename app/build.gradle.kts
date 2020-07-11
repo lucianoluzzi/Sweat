@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-android-extensions")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -18,7 +19,7 @@ android {
     buildToolsVersion("29.0.3")
 
     defaultConfig {
-        applicationId = "com.lucianoluzzi.sweat"
+        applicationId = "com.lucianoluzzi.fitnet"
         minSdkVersion(23)
         targetSdkVersion(29)
         versionCode = 1
