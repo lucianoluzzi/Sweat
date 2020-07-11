@@ -5,15 +5,20 @@ object Dependencies {
 
     const val androidKtxCore = "androidx.core:core-ktx:${Versions.androidCoreKtx}"
     const val androidAppCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
-    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val androidXAnnotation = "androidx.annotation:annotation:${Versions.androidXAnnotation}"
     const val androidXFragment = "androidx.fragment:fragment-ktx:${Versions.androidXFragment}"
     const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveData}"
     const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
-    const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+    const val safeArgs =
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
+    const val googleServices = "com.google.gms:google-services:${Versions.googleServices}"
+    const val firebaseAnalytics =
+        "com.google.firebase:firebase-analytics:${Versions.firebaseAnalytics}"
 
     const val koin = "org.koin:koin-android:${Versions.koinVersion}"
     const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koinVersion}"
@@ -52,6 +57,8 @@ object Dependencies {
         const val liveData = "2.2.0"
         const val navigation = "2.3.0-rc01"
         const val fragment = "1.2.0"
+        const val googleServices = "4.3.3"
+        const val firebaseAnalytics = "17.4.1"
 
         const val koinVersion = "2.1.5"
         const val mockitoKotlin = "2.2.0"

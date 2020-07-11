@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "712404179936",
+    "firebase_url": "https://fitnet-b5127.firebaseio.com",
+    "project_id": "fitnet-b5127",
+    "storage_bucket": "fitnet-b5127.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712404179936:android:e04aecf1da2720e1f86985",
+        "android_client_info": {
+          "package_name": "com.lucianoluzzi.fitnet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712404179936-qe2tbt0v2odjfbgpgcmro8q32oq6am7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuetNXPq6Fy9RlVja27rgOx_LNZM9ZRGs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712404179936-qe2tbt0v2odjfbgpgcmro8q32oq6am7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
