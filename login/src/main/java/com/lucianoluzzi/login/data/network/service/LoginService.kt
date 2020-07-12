@@ -1,4 +1,4 @@
-package com.lucianoluzzi.login.repository.network.service
+package com.lucianoluzzi.login.data.network.service
 
 import com.lucianoluzzi.domain.Profile
 import retrofit2.http.Body

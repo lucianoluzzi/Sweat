@@ -1,4 +1,4 @@
-package com.lucianoluzzi.login.repository.network
+package com.lucianoluzzi.login.data.network
 
 import android.os.Bundle
 import com.facebook.AccessToken
@@ -7,8 +7,8 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 
-class FacebookRepositoryImpl : FacebookRepository {
-    override suspend fun getEmail(accessToken: AccessToken) = doRequest(accessToken)
+class FacebookRepository {
+    suspend fun getEmail(accessToken: AccessToken) = doRequest(accessToken)
 
     private suspend fun doRequest(accessToken: AccessToken): String? =
         suspendCoroutine { continuation ->

@@ -1,9 +1,9 @@
-package com.lucianoluzzi.login.di
+package com.lucianoluzzi.login
 
 import com.lucianoluzzi.login.domain.usecases.GetProfileUseCaseImpl
 import com.lucianoluzzi.login.domain.usecases.DoLoginUseCaseImpl
-import com.lucianoluzzi.login.repository.network.FacebookRepositoryImpl
-import com.lucianoluzzi.login.repository.network.LoginRepositoryImpl
+import com.lucianoluzzi.login.data.network.FacebookRepository
+import com.lucianoluzzi.login.data.network.LoginRepositoryImpl
 import com.lucianoluzzi.login.ui.LoginFragmentFactory
 import com.lucianoluzzi.login.ui.viewmodel.LoginViewModel
 import com.lucianoluzzi.networkbuilder.APIProvider
@@ -16,7 +16,7 @@ object LoginModule {
 
         viewModel {
             val getProfileUseCase =
-                GetProfileUseCaseImpl(FacebookRepositoryImpl())
+                GetProfileUseCaseImpl(FacebookRepository())
             val doLoginUseCase = DoLoginUseCaseImpl(
                 LoginRepositoryImpl(get() as APIProvider, get() as NetworkExecutor)
             )

@@ -9,7 +9,7 @@ import com.lucianoluzzi.login.InstantExecutorExtension
 import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.domain.usecases.DoLoginUseCase
 import com.lucianoluzzi.login.domain.usecases.GetProfileUseCase
-import com.lucianoluzzi.login.repository.network.response.LoginResponseWrapper
+import com.lucianoluzzi.login.data.network.response.LoginResponseWrapper
 import com.lucianoluzzi.networkbuilder.domain.entities.ErrorResponse
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock

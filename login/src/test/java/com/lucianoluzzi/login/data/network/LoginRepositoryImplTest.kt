@@ -1,9 +1,9 @@
-package com.lucianoluzzi.login.repository.network
+package com.lucianoluzzi.login.data.network
 
 import com.lucianoluzzi.login.CoroutineScopeExtension
 import com.lucianoluzzi.domain.Profile
-import com.lucianoluzzi.login.repository.network.request.LoginRequest
-import com.lucianoluzzi.login.repository.network.service.LoginService
+import com.lucianoluzzi.login.data.network.request.LoginRequest
+import com.lucianoluzzi.login.data.network.service.LoginService
 import com.lucianoluzzi.networkbuilder.APIProvider
 import com.lucianoluzzi.networkbuilder.NetworkExecutor
 import com.lucianoluzzi.networkbuilder.domain.entities.ResultWrapper

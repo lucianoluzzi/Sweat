@@ -6,7 +6,7 @@ import com.facebook.Profile
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.common.truth.Truth.assertThat
 import com.lucianoluzzi.login.CoroutineScopeExtension
-import com.lucianoluzzi.login.repository.network.FacebookRepository
+import com.lucianoluzzi.login.domain.repository.FacebookRepository
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever

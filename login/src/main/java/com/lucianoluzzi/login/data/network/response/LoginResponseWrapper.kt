@@ -1,4 +1,4 @@
-package com.lucianoluzzi.login.repository.network.response
+package com.lucianoluzzi.login.data.network.response
 
 sealed class LoginResponseWrapper {
     data class Success<T>(val responseData: T): LoginResponseWrapper()

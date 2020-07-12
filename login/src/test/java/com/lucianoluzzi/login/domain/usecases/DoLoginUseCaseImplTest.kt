@@ -2,9 +2,9 @@ package com.lucianoluzzi.login.domain.usecases
 
 import com.google.common.truth.Truth.assertThat
 import com.lucianoluzzi.login.CoroutineScopeExtension
-import com.lucianoluzzi.login.repository.network.LoginRepository
-import com.lucianoluzzi.login.repository.network.request.LoginRequest
-import com.lucianoluzzi.login.repository.network.response.LoginResponseWrapper
+import com.lucianoluzzi.login.domain.repository.LoginRepository
+import com.lucianoluzzi.login.data.network.request.LoginRequest
+import com.lucianoluzzi.login.data.network.response.LoginResponseWrapper
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever

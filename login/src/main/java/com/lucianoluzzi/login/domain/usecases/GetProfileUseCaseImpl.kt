@@ -3,7 +3,7 @@ package com.lucianoluzzi.login.domain.usecases
 import com.facebook.AccessToken
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.lucianoluzzi.domain.Profile
-import com.lucianoluzzi.login.repository.network.FacebookRepository
+import com.lucianoluzzi.login.data.network.FacebookRepository
 import com.lucianoluzzi.tests.DispatcherRegistry
 import kotlinx.coroutines.withContext
 
@@ -21,7 +21,7 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
                 " $it "
             } ?: " "
 
-            com.lucianoluzzi.domain.Profile(
+            Profile(
                 email = it,
                 name = "${facebookProfile.firstName}$middleName${facebookProfile.lastName}",
                 imageUrl = facebookProfile.getProfilePictureUri(200, 200)?.toString()
@@ -36,7 +36,7 @@ class GetProfileUseCaseImpl(private val facebookRepository: FacebookRepository) 
             googleSignInAccount.givenName != null &&
             googleSignInAccount.familyName != null
         ) {
-            return com.lucianoluzzi.domain.Profile(
+            return Profile(
                 email = googleSignInAccount.email!!,
                 name = "${googleSignInAccount.givenName!!} ${googleSignInAccount.familyName!!}",
                 imageUrl = googleSignInAccount.photoUrl?.toString()
