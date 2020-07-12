@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -63,6 +64,7 @@ dependencies {
     implementation(Dependencies.androidKtxCore)
     implementation(Dependencies.androidAppCompat)
     implementation(Dependencies.constraintLayout)
+    implementation(Dependencies.crashlytics)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.androidXJunit)

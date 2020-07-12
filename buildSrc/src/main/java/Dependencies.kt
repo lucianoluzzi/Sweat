@@ -19,6 +19,8 @@ object Dependencies {
     const val googleServices = "com.google.gms:google-services:${Versions.googleServices}"
     const val firebaseAnalytics =
         "com.google.firebase:firebase-analytics:${Versions.firebaseAnalytics}"
+    const val crashlytics =
+        "com.google.firebase:firebase-crashlytics-gradle:${Versions.crashlytics}"
 
     const val koin = "org.koin:koin-android:${Versions.koinVersion}"
     const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koinVersion}"
@@ -59,6 +61,7 @@ object Dependencies {
         const val fragment = "1.2.0"
         const val googleServices = "4.3.3"
         const val firebaseAnalytics = "17.4.1"
+        const val crashlytics = "2.2.0"
 
         const val koinVersion = "2.1.5"
         const val mockitoKotlin = "2.2.0"
