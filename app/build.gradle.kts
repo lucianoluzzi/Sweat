@@ -65,6 +65,7 @@ dependencies {
     implementation(Dependencies.androidAppCompat)
     implementation(Dependencies.constraintLayout)
     implementation(Dependencies.crashlytics)
+    implementation(Dependencies.firebaseAnalytics)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.androidXJunit)
