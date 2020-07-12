@@ -31,5 +31,10 @@ dependencies {
     implementation(Dependencies.androidKtxCore)
     implementation(Dependencies.androidAppCompat)
 
+    implementation(Dependencies.firebaseAnalytics)
+
+    implementation(Dependencies.koin)
+    implementation(Dependencies.koinAndroidScope)
+
     testImplementation(Dependencies.junit)
 }

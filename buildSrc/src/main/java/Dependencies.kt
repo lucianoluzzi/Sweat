@@ -18,7 +18,7 @@ object Dependencies {
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
     const val googleServices = "com.google.gms:google-services:${Versions.googleServices}"
     const val firebaseAnalytics =
-        "com.google.firebase:firebase-analytics:${Versions.firebaseAnalytics}"
+        "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
     const val crashlytics =
         "com.google.firebase:firebase-crashlytics-gradle:${Versions.crashlytics}"
 
@@ -60,7 +60,7 @@ object Dependencies {
         const val navigation = "2.3.0-rc01"
         const val fragment = "1.2.0"
         const val googleServices = "4.3.3"
-        const val firebaseAnalytics = "17.4.1"
+        const val firebaseAnalytics = "17.4.4"
         const val crashlytics = "2.2.0"
 
         const val koinVersion = "2.1.5"
