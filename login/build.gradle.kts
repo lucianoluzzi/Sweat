@@ -47,6 +47,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":tests"))
     implementation(project(":utils"))
+    implementation(project(":analytics"))
     testImplementation(project(":tests"))
 
     implementation(Dependencies.kotlin)

@@ -1,9 +1,11 @@
 package com.lucianoluzzi.login
 
-import com.lucianoluzzi.login.domain.usecases.GetProfileUseCaseImpl
-import com.lucianoluzzi.login.domain.usecases.DoLoginUseCaseImpl
+import com.lucianoluzzi.analytics.AnalyticsTracker
+import com.lucianoluzzi.login.data.analytics.LoginTracker
 import com.lucianoluzzi.login.data.network.FacebookRepository
 import com.lucianoluzzi.login.data.network.LoginRepositoryImpl
+import com.lucianoluzzi.login.domain.usecases.DoLoginUseCaseImpl
+import com.lucianoluzzi.login.domain.usecases.GetProfileUseCaseImpl
 import com.lucianoluzzi.login.ui.LoginFragmentFactory
 import com.lucianoluzzi.login.ui.viewmodel.LoginViewModel
 import com.lucianoluzzi.networkbuilder.APIProvider
@@ -28,7 +30,14 @@ object LoginModule {
         }
 
         factory {
-            LoginFragmentFactory(get() as LoginViewModel)
+            LoginTracker(get() as AnalyticsTracker)
+        }
+
+        factory {
+            LoginFragmentFactory(
+                get() as LoginViewModel,
+                get() as LoginTracker
+            )
         }
     }
 }

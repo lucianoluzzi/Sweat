@@ -56,6 +56,7 @@ dependencies {
     implementation(project(":network"))
     implementation(project(":login"))
     implementation(project(":design"))
+    implementation(project(":analytics"))
     implementation(project(":workout"))
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))

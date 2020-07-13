@@ -1,4 +1,4 @@
-package com.lucianoluzzi.fitnet.analytics
+package com.lucianoluzzi.analytics
 
 import android.app.Activity
 import android.os.Bundle
@@ -7,6 +7,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 class FirebaseAnalytics(
     private val firebaseAnalytics: FirebaseAnalytics
 ) : AnalyticsTracker {
+
     override fun trackScreen(activity: Activity, screenName: String) {
         firebaseAnalytics.setCurrentScreen(activity, screenName, null)
     }

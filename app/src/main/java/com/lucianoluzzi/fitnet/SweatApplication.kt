@@ -1,6 +1,7 @@
 package com.lucianoluzzi.fitnet
 
 import android.app.Application
+import com.lucianoluzzi.analytics.AnalyticsModule
 import com.lucianoluzzi.login.LoginModule
 import com.lucianoluzzi.networkbuilder.di.NetworkBuilderModule
 import com.lucianoluzzi.workout.di.WorkoutModule
@@ -15,10 +16,10 @@ class SweatApplication : Application() {
     private fun initDependencyInjection() {
         startKoin {
             val modules = listOf(
-                AppModule.module,
                 NetworkBuilderModule.module,
                 LoginModule.module,
-                WorkoutModule.module
+                WorkoutModule.module,
+                AnalyticsModule.module
             )
 
             modules(modules)

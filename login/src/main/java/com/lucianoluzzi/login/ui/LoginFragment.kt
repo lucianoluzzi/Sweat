@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -20,6 +21,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.lucianoluzzi.login.data.analytics.LoginTracker
 import com.lucianoluzzi.login.databinding.FragmentLoginBinding
 import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.domain.entities.facebook.FacebookSessionManager
@@ -30,11 +32,13 @@ import com.lucianoluzzi.login.ui.viewmodel.LoginViewModel
 import com.lucianoluzzi.networkbuilder.domain.entities.ErrorResponse
 import com.lucianoluzzi.utils.doNothing
 import com.lucianoluzzi.utils.hide
-import com.lucianoluzzi.utils.show
 import kotlinx.coroutines.launch
 
 
-class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
+class LoginFragment(
+    private val viewModel: LoginViewModel,
+    private val loginTracker: LoginTracker
+) : Fragment() {
     private val binding by lazy {
         val inflater = LayoutInflater.from(requireContext())
         FragmentLoginBinding.inflate(inflater)
@@ -68,6 +72,9 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
         setFacebookProfileTracker()
         setFacebookLoginButton()
         setGoogleLoginButton()
+        requireActivity().onBackPressedDispatcher.addCallback {
+            loginTracker.trackBackButton()
+        }
 
         viewModel.loginResponseState.observe(viewLifecycleOwner, Observer {
             handleLoginResponse(it)
@@ -77,8 +84,9 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val googleAccount = googleSessionManager.getSignedInAccount()
+        loginTracker.trackScreenShown(requireActivity())
 
+        val googleAccount = googleSessionManager.getSignedInAccount()
         if (googleAccount != null) {
             viewModel.doLoginWithGoogle(googleAccount)
         } else if (facebookSessionManager.isSignedIn()) {
@@ -106,7 +114,7 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
         binding.facebookLogin.fragment = this
         lifecycleScope.launch {
             binding.facebookLogin.setOnClickListener {
-                viewModel.loginClicked()
+                loginTracker.trackFacebookButtonClicked()
             }
             binding.facebookLogin.onLogin(facebookCallbackManager)
         }
@@ -115,7 +123,7 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
     private fun setGoogleLoginButton() {
         binding.signInButton.setSize(SignInButton.SIZE_STANDARD)
         binding.signInButton.setOnClickListener {
-            viewModel.loginClicked()
+            loginTracker.trackGoogleSignInClicked()
             val signInIntent: Intent = googleSignInClient.signInIntent
             startActivityForResult(signInIntent, GOOGLE_SIGNIN_REQUEST_CODE)
         }
@@ -127,13 +135,6 @@ class LoginFragment(private val viewModel: LoginViewModel) : Fragment() {
             is LoginResponseState.Success -> { navigateToUserFeed(loginResponseState.response) }
             is LoginResponseState.Error -> displayErrorMessage(loginResponseState.error)
             is LoginResponseState.Cancel -> binding.progress.hide()
-        }
-    }
-
-    private fun handleLoading() {
-        with(binding) {
-            progress.show()
-            contentContainer.hide()
         }
     }
 

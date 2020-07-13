@@ -1,3 +1,4 @@
+include ':analytics'
 include ':workout'
 include ':utils'
 include ':domain'

@@ -7,12 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.facebook.AccessToken
 import com.facebook.Profile
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.lucianoluzzi.login.data.network.response.LoginResponseWrapper
 import com.lucianoluzzi.login.domain.entities.LoginResponseState
 import com.lucianoluzzi.login.domain.usecases.DoLoginUseCase
 import com.lucianoluzzi.login.domain.usecases.GetProfileUseCase
-import com.lucianoluzzi.login.data.network.response.LoginResponseWrapper
 import com.lucianoluzzi.networkbuilder.domain.entities.ErrorResponse
-import com.lucianoluzzi.utils.doNothing
 import kotlinx.coroutines.launch
 
 class LoginViewModel(
@@ -22,8 +21,6 @@ class LoginViewModel(
 
     private val _loginState = MutableLiveData<LoginResponseState>()
     val loginResponseState: LiveData<LoginResponseState> = _loginState
-
-    fun loginClicked() = doNothing
 
     fun doLoginWithFacebookProfile(facebookProfile: Profile, accessToken: AccessToken) {
         viewModelScope.launch {
