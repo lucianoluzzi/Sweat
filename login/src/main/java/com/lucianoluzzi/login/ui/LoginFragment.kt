@@ -140,6 +140,7 @@ class LoginFragment(
 
     private fun navigateToUserFeed(profile: com.lucianoluzzi.domain.Profile) {
         binding.progress.hide()
+        loginTracker.trackUserLogin(profile)
 
         val intent = Intent()
         intent.putExtra("PROFILE", profile)
