@@ -1,5 +1,6 @@
 package com.lucianoluzzi.workout.post.ui.fragment
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,14 +15,18 @@ import com.lucianoluzzi.utils.FileUtils
 import com.lucianoluzzi.utils.toBitmap
 import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.ShareDialogFragmentBinding
+import com.lucianoluzzi.workout.post.data.WorkoutTracker
 import com.lucianoluzzi.workout.post.ui.adapter.ExerciseItemAdapter
 import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
+import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 
 class ShareDialogFragment : DialogFragment() {
 
     private val viewModel by sharedViewModel<PostWorkoutViewModel>()
+    private val workoutTracker: WorkoutTracker = get()
+
     private val binding by lazy {
         val inflater = LayoutInflater.from(context)
         ShareDialogFragmentBinding.inflate(inflater)
@@ -37,6 +42,7 @@ class ShareDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        workoutTracker.trackScreenShown(requireActivity())
         setUpViews()
     }
 
@@ -44,9 +50,11 @@ class ShareDialogFragment : DialogFragment() {
         binding.date.text = DateTimeUtils().getDisplayableCurrentDate()
         binding.trainOf.text = getString(R.string.share_workout_name, getProfileName())
         binding.cancel.setOnClickListener {
+            workoutTracker.trackCancelButton()
             dismiss()
         }
         binding.share.setOnClickListener {
+            workoutTracker.trackShareButton()
             share()
             viewModel.clearWorkout()
             dismiss()
@@ -110,5 +118,10 @@ class ShareDialogFragment : DialogFragment() {
         resolveActivity?.let {
             activity.startActivityForResult(intent, 0)
         }
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        workoutTracker.trackDismissed()
     }
 }

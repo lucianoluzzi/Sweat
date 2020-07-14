@@ -45,6 +45,7 @@ dependencies {
     implementation(project(":design"))
     implementation(project(":tests"))
     implementation(project(":utils"))
+    implementation(project(":analytics"))
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
