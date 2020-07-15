@@ -14,7 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 @ExtendWith(CoroutineScopeExtension::class, InstantExecutorExtension::class)
 class PostWorkoutViewModelTest {
     private val getExercisesUseCase = mock<GetExercisesUseCase>()
-    private val viewModel = PostWorkoutViewModel(getExercisesUseCase)
+    private val viewModel = ShareWorkoutTracker(getExercisesUseCase)
 
     @Test
     fun `assert view model exposes usecase data`() = runBlockingTest {
@@ -25,7 +25,7 @@ class PostWorkoutViewModelTest {
         )
 
         whenever(getExercisesUseCase.invoke()).thenReturn(mockedList)
-        val viewModel = PostWorkoutViewModel(getExercisesUseCase)
+        val viewModel = ShareWorkoutTracker(getExercisesUseCase)
 
         assertThat(viewModel.exercises.value).isEqualTo(mockedList)
     }

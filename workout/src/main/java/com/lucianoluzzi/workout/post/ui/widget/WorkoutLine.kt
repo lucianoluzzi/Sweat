@@ -14,9 +14,13 @@ import com.lucianoluzzi.design.R
 import com.lucianoluzzi.utils.doNothing
 import com.lucianoluzzi.utils.hide
 import com.lucianoluzzi.utils.show
+import com.lucianoluzzi.workout.post.data.PostWorkoutTracker
 import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 
-class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
+class WorkoutLine(
+    context: Context,
+    private val tracker: PostWorkoutTracker
+) : LinearLayoutCompat(context) {
 
     private val workoutName: AutoCompleteTextView
     private val weight: TextInputEditText
@@ -50,6 +54,7 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
                 actionButton.hide(keepSize = true)
             else
                 actionButton.show()
+            tracker.trackName(text.toString())
         }
     }
 
@@ -74,6 +79,7 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
                         actionButton.hide(keepSize = true)
                     else
                         actionButton.show()
+                    tracker.trackWeight(text.toString())
                 }
             }
         }
@@ -87,6 +93,7 @@ class WorkoutLine(context: Context) : LinearLayoutCompat(context) {
                 actionButton.hide(keepSize = true)
             else
                 actionButton.show()
+            tracker.trackRepetitions(text.toString())
         }
     }
 

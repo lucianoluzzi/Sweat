@@ -16,12 +16,16 @@ import androidx.transition.TransitionManager
 import com.lucianoluzzi.domain.Profile
 import com.lucianoluzzi.workout.R
 import com.lucianoluzzi.workout.databinding.FragmentPostWorkoutBinding
+import com.lucianoluzzi.workout.post.data.PostWorkoutTracker
 import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
 import com.lucianoluzzi.workout.post.ui.viewmodel.uimodel.WorkoutLineModel
 import com.lucianoluzzi.workout.post.ui.widget.WorkoutLine
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
-class PostWorkoutFragment(private val profile: Profile) : Fragment() {
+class PostWorkoutFragment(
+    private val profile: Profile,
+    private val postWorkoutTracker: PostWorkoutTracker
+) : Fragment() {
 
     private val viewModel by sharedViewModel<PostWorkoutViewModel>()
     private val binding by lazy {
@@ -36,6 +40,7 @@ class PostWorkoutFragment(private val profile: Profile) : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        postWorkoutTracker.trackScreenShown(requireActivity())
         setToolbar()
         setShareClick()
 
@@ -91,7 +96,7 @@ class PostWorkoutFragment(private val profile: Profile) : Fragment() {
 
     private fun addLine(workoutLine: WorkoutLineModel? = null) {
         val child =
-            WorkoutLine(requireContext())
+            WorkoutLine(requireContext(), postWorkoutTracker)
         child.setActionClickListener {
             onActionClick(child)
         }
@@ -112,6 +117,7 @@ class PostWorkoutFragment(private val profile: Profile) : Fragment() {
         val indexOfChild = binding.exercisesContainer.indexOfChild(child)
 
         if (indexOfChild != binding.exercisesContainer.size - 1) {
+            postWorkoutTracker.trackDeleteButton()
             removeLineFromPersistency(child.getWorkoutLineModel())
             removeLine(child)
             if (binding.exercisesContainer.size == 1) {
@@ -119,6 +125,7 @@ class PostWorkoutFragment(private val profile: Profile) : Fragment() {
                 changeShareVisibility(false)
             }
         } else {
+            postWorkoutTracker.trackAddButton()
             saveLineInPersistency(child.getWorkoutLineModel())
             addLine()
             changeShareVisibility(true)

@@ -3,7 +3,7 @@ package com.lucianoluzzi.workout.post.data
 import android.app.Activity
 import com.lucianoluzzi.analytics.AnalyticsTracker
 
-class WorkoutTracker(private val analytics: AnalyticsTracker) {
+class ShareWorkoutTracker(private val analytics: AnalyticsTracker) {
 
     fun trackScreenShown(activity: Activity) = analytics.trackScreen(activity, SCREEN_NAME)
 

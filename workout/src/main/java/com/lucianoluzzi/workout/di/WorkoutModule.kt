@@ -6,7 +6,8 @@ import com.lucianoluzzi.workout.WorkoutFragmentFactory
 import com.lucianoluzzi.workout.feed.domain.usecase.RetrieveFeedUseCaseImpl
 import com.lucianoluzzi.workout.feed.repository.FeedRepositoryImpl
 import com.lucianoluzzi.workout.feed.ui.viewModel.FeedViewModel
-import com.lucianoluzzi.workout.post.data.WorkoutTracker
+import com.lucianoluzzi.workout.post.data.PostWorkoutTracker
+import com.lucianoluzzi.workout.post.data.ShareWorkoutTracker
 import com.lucianoluzzi.workout.post.domain.usecase.GetExercisesUseCase
 import com.lucianoluzzi.workout.post.ui.viewmodel.PostWorkoutViewModel
 import org.koin.android.viewmodel.dsl.viewModel
@@ -24,13 +25,14 @@ object WorkoutModule {
         }
 
         factory {
-            WorkoutTracker(get() as AnalyticsTracker)
+            ShareWorkoutTracker(get() as AnalyticsTracker)
         }
 
         factory { (profile: Profile) ->
             WorkoutFragmentFactory(
                 profile,
-                get() as FeedViewModel
+                get() as FeedViewModel,
+                PostWorkoutTracker(get() as AnalyticsTracker)
             )
         }
     }

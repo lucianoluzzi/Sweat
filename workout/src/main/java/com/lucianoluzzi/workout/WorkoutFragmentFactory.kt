@@ -5,12 +5,14 @@ import androidx.fragment.app.FragmentFactory
 import com.lucianoluzzi.domain.Profile
 import com.lucianoluzzi.workout.feed.ui.FeedFragment
 import com.lucianoluzzi.workout.feed.ui.viewModel.FeedViewModel
+import com.lucianoluzzi.workout.post.data.PostWorkoutTracker
 import com.lucianoluzzi.workout.post.ui.fragment.PostWorkoutFragment
 import com.lucianoluzzi.workout.post.ui.fragment.ShareDialogFragment
 
 class WorkoutFragmentFactory(
     private val profile: Profile,
-    private val feedViewModel: FeedViewModel
+    private val feedViewModel: FeedViewModel,
+    private val postWorkoutTracker: PostWorkoutTracker
 ) : FragmentFactory() {
 
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment =
@@ -19,7 +21,7 @@ class WorkoutFragmentFactory(
                 profile,
                 feedViewModel
             )
-            PostWorkoutFragment::class.java.name -> PostWorkoutFragment(profile)
+            PostWorkoutFragment::class.java.name -> PostWorkoutFragment(profile, postWorkoutTracker)
             ShareDialogFragment::class.java.name -> ShareDialogFragment()
             else -> super.instantiate(classLoader, className)
         }
