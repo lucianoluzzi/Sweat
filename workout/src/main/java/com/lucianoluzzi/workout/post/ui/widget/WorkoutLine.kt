@@ -49,12 +49,16 @@ class WorkoutLine(
     }
 
     private fun setWorkoutTextChangedListener() {
+        workoutName.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                tracker.trackName(workoutName.text.toString())
+            }
+        }
         workoutName.doOnTextChanged { text, _, _, _ ->
             if (text.isNullOrEmpty() || weight.text.isNullOrEmpty() || repetitions.text.isNullOrEmpty())
                 actionButton.hide(keepSize = true)
             else
                 actionButton.show()
-            tracker.trackName(text.toString())
         }
     }
 
@@ -79,12 +83,14 @@ class WorkoutLine(
                         actionButton.hide(keepSize = true)
                     else
                         actionButton.show()
-                    tracker.trackWeight(text.toString())
                 }
             }
         }
-
         weight.addTextChangedListener(textWatcher)
+        weight.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus)
+                tracker.trackWeight(weight.text.toString())
+        }
     }
 
     private fun setRepetitionsTextChangedListener() {
@@ -93,7 +99,10 @@ class WorkoutLine(
                 actionButton.hide(keepSize = true)
             else
                 actionButton.show()
-            tracker.trackRepetitions(text.toString())
+        }
+        repetitions.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus)
+                tracker.trackRepetitions(repetitions.text.toString())
         }
     }
 

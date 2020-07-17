@@ -8,27 +8,33 @@ class PostWorkoutTracker(private val analyticsTracker: AnalyticsTracker) {
     fun trackScreenShown(activity: Activity) = analyticsTracker.trackScreen(activity, SCREEN_NAME)
 
     fun trackName(name: String) {
-        analyticsTracker.trackEvent(
-            WORKOUT_NAME_FILLED, mapOf(
-                WORKOUT_NAME to name
+        if (name.isNotEmpty()) {
+            analyticsTracker.trackEvent(
+                WORKOUT_NAME_FILLED, mapOf(
+                    WORKOUT_NAME to name
+                )
             )
-        )
+        }
     }
 
     fun trackWeight(weight: String) {
-        analyticsTracker.trackEvent(
-            WORKOUT_WEIGHT_FILLED, mapOf(
-                WORKOUT_WEIGHT to weight
+        if (weight.isNotEmpty()) {
+            analyticsTracker.trackEvent(
+                WORKOUT_WEIGHT_FILLED, mapOf(
+                    WORKOUT_WEIGHT to weight
+                )
             )
-        )
+        }
     }
 
     fun trackRepetitions(repetitions: String) {
-        analyticsTracker.trackEvent(
-            WORKOUT_REPETITIONS_FILLED, mapOf(
-                WORKOUT_REPETITIONS to repetitions
+        if (repetitions.isNotEmpty()) {
+            analyticsTracker.trackEvent(
+                WORKOUT_REPETITIONS_FILLED, mapOf(
+                    WORKOUT_REPETITIONS to repetitions
+                )
             )
-        )
+        }
     }
 
     fun trackAddButton() = analyticsTracker.trackEvent(ADD_BUTTON_CLICKED)
