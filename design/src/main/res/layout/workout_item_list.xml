@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:gravity="center"
     android:orientation="horizontal"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/exercise_accessibility"
                 android:imeOptions="actionNext"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:maxLength="240"
                 android:minWidth="90dp"
                 android:textSize="14sp"
@@ -46,7 +46,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/weight_input"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:hint="@string/weight_label"
             app:layout_constraintBottom_toBottomOf="@id/exercise_input"
@@ -58,7 +58,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/weight"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:contentDescription="@string/weight_accessibility"
                 android:imeOptions="actionNext"
                 android:digits="0123456789kg "
@@ -74,7 +74,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/reps_input"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:hint="@string/reps_hint"
             app:layout_constraintBottom_toBottomOf="@id/exercise_input"
@@ -86,7 +86,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/repetitions"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:contentDescription="@string/repetitions_accessibility"
                 android:imeOptions="actionNext"
                 android:inputType="number"
