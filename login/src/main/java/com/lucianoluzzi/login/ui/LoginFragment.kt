@@ -75,6 +75,7 @@ class LoginFragment(
         setGoogleLoginButton()
         requireActivity().onBackPressedDispatcher.addCallback {
             loginTracker.trackBackButton()
+            requireActivity().finish()
         }
 
         viewModel.loginResponseState.observe(viewLifecycleOwner, Observer {
