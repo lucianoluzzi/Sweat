@@ -54,6 +54,7 @@ dependencies {
 
     implementation(Dependencies.koin)
     implementation(Dependencies.koinViewModel)
+    implementation(Dependencies.koinAndroidScope)
 
     implementation(Dependencies.androidKtxCore)
     implementation(Dependencies.androidAppCompat)

@@ -32,6 +32,7 @@ import com.lucianoluzzi.login.ui.viewmodel.LoginViewModel
 import com.lucianoluzzi.networkbuilder.domain.entities.ErrorResponse
 import com.lucianoluzzi.utils.doNothing
 import com.lucianoluzzi.utils.hide
+import com.lucianoluzzi.utils.show
 import kotlinx.coroutines.launch
 
 
@@ -93,6 +94,9 @@ class LoginFragment(
             viewModel.doLoginWithFacebookProfile(
                 facebookSessionManager.profile!!, facebookSessionManager.accessToken!!
             )
+        } else {
+            binding.splashContainer.hide()
+            binding.contentContainer.show()
         }
     }
 

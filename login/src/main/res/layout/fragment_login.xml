@@ -72,5 +72,9 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <include
+            android:id="@+id/splash_container"
+            layout="@layout/fragment_splashscreen" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

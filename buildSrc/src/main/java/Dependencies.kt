@@ -63,7 +63,7 @@ object Dependencies {
         const val firebaseAnalytics = "17.4.4"
         const val crashlytics = "2.2.0"
 
-        const val koinVersion = "2.1.5"
+        const val koinVersion = "2.1.6"
         const val mockitoKotlin = "2.2.0"
         const val mockitoCore = "3.3.3"
 
