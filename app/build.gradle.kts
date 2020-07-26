@@ -7,6 +7,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        create("signin") {
+            storeFile = file("/Users/lucianoluzzi/Documents/dev/Sweat/keystore/sweat-ks")
+            keyAlias = "sweat-ks"
+            storePassword = "alonem0b1lt3c"
+            keyPassword = "alonem0b1lt3c"
+        }
+    }
     buildFeatures {
         dataBinding = true
     }
